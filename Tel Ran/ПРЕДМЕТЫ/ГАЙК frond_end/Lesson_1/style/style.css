@@ -1,0 +1,16 @@
+p{
+    color: darkblue;
+    background-image: green;
+}
+
+a{
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    color: aliceblue;
+}
+
+img{
+    width: 350px;
+    height: 250px;
+}

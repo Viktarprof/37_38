@@ -1,0 +1,41 @@
+h1{
+background-color: aqua;
+color: #A3CB38;
+text-align: center;
+}
+
+h2{
+background-color: rgb(190, 121, 10);
+color: #0b20bd;
+text-align: center;
+}
+
+p{
+    border: 2px solid rgb(146, 5, 5);
+    padding: 20px;
+    margin: 10px;
+}
+
+.work{
+background-color: rgb(1, 214, 214);
+color: #bcff03;
+}
+
+.friend{
+background-color: rgb(62, 105, 105);
+color: #fffffffc;
+padding: 10px;
+margin: 5px;
+}
+
+.hobby{ border: 2px solid forestgreen;
+background-color: aqua;
+color: #A3CB38;
+margin: 25px;
+}
+
+.sotial-media{ border: 2px solid blue;
+background-color: rgba(8, 0, 255, 0.618);
+color: #040000;
+text-align: center;
+}

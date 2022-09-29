@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    color: crimson;
+text-align: center;
+}
+
+div{
+    border: 2px solid black;
+    color: rgb(17, 118, 84);
+    margin: 30px;
+    padding: 20px;
+}
+.hobby img{
+    background-color: aqua;
+    color: rgb(100, 129, 13);
+
+}
+.work img{
+    background-color: #90b8dd;
+    color: rgb(242, 242, 242);
+    width: 300px;
+}
+.friends img{
+    background-color: blanchedalmond;
+    color:#d13c37;
+    width: 300px;
+}
+.sotial-media {
+text-align: center;
+}

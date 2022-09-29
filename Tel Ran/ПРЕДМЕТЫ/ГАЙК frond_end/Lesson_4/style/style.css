@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* Добавить внутренние отступы слева и справа (5%) а внешними (20%) и отступами сверху и снизу (внутренние 30px а внешние 40px). */
+
+.main{
+    border: 2px solid black;
+    width: 50%;
+    height: 400px;
+    padding: 5% 30px;
+    margin: 20% 40px;
+}
+
+
+
+
+
+
+p{
+    border: 5px solid black;
+    padding: 20px;
+    width: 500px;
+    /* border: 1px solid black; */
+}
+.block_1{
+width: 500px;
+}
+.block_2{
+    /* width: 100%; */
+    box-sizing: border-box;
+    /* box-sizing: border-box  сьедает размеры пикселей сам. так удобней чем если задавать размер */
+}
+.block_3{
+    /* width: 80vw;
+    height: 50vh; */
+    width: 500px;
+    height: 50vmin;
+
+    /* width: 50vmax;
+    height: 50vmax; */
+    margin: 40px 10%;
+}

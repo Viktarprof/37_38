@@ -1,0 +1,95 @@
+.list {
+    padding: 10px;
+    border: 2px solid rgb(171, 15, 15);
+    padding-left: 40px;
+    
+}
+ul{
+list-style:georgian;
+}
+ol{
+    list-style: circle;
+}
+table{
+    border-collapse: collapse;
+}
+.colored{
+    background-color: #f1c40f;
+}
+table td:first-child{
+    background-color: aquamarine;
+}
+/* table tr:first-child{
+    background-color: rgb(157, 255, 127);
+}
+table tr:last-child{
+    background-color: rgb(255, 127, 127);
+ } */
+ 
+/* tr:nth-child(3n-1){
+    background-color: rgb(236, 0, 12);
+}
+td:nth-child(2){
+    background-color: hsl(186, 100%, 50%);
+} */
+
+/* tr:nth-child(4n-3){
+    background-color: rgb(247, 0, 12);
+}
+
+tr:nth-child(4n-2){
+    background-color: rgb(243, 247, 0);
+}
+tr:nth-child(4n-1){
+    background-color: rgb(8, 247, 0);
+}
+tr:nth-child(4n){
+    background-color: rgb(0, 74, 247);
+} */
+
+/* tr:nth-child(2n-1) td:nth-child(2n-1){
+    background-color: #f1c40f;
+    color: rgb(236, 0, 0);
+}
+tr:nth-child(2n-1) td:nth-child(2n-1){
+    background-color: #f1c40f;
+    color: rgb(236, 0, 0);
+} */
+
+
+/* chess tr:nth-child(odd) td:nth-child(odd) {
+	background: black;
+}	
+.chess tr:nth-child(even) td:nth-child(even) {
+	background: black;
+} четные и нечетные ячейки
+
+
+
+
+tr:nth-child(2n-1) td:nth-child(2n){
+    background-color: rgb(213, 16, 16);
+    color: white;
+ }
+ tr:nth-child(2n) td:nth-child(2n-1){
+    background-color: rgb(213, 16, 16);
+    color: white;
+    
+    
+    
+    четные и нечетные ячейки*/
+
+
+
+
+td{
+    width: 60px;
+    height: 60px;
+}
+
+tr:nth-child(2n) td:nth-child(2n){
+    background-color: #f1c40f;
+}
+tr:nth-child(2n-1) td:nth-child(2n-1){
+    background-color: #27c867;
+}
