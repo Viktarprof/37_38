@@ -1,0 +1,132 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.things_form{
+    margin: 40px;
+    max-width: 700px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: inset 5px 5px 20px  rgb(70, 199, 14);
+    /*iset внутренняя тень*/
+/*box-shadow: тень по краям*/
+
+}
+
+.things_form *+*{
+    margin-top: 20px;
+}
+
+.things_form input{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 3px solid transparent;
+}
+.things_form input:focus{
+        outline: none;
+        border-bottom: 3px solid rgb(255, 140, 0);
+}
+
+.things_form textarea{
+    padding: 10px;
+    border: none;
+    resize: none;
+    /* height: 20px;
+    width: 300px;   размеры окна ввода текста*/
+    background-color: rgb(241, 152, 17);
+    border-radius: 10px;
+}
+.things_form textarea:focus{
+    /* :focus ПСЕВДО КЛАСС */
+        outline: none;
+        border: 3px solid red;
+}
+
+.things_form button{
+    color: rgb(0, 136, 255);
+    background-color: rgba(0, 253, 202, 0.742);
+    border-radius: 40px;
+    padding: 20px;
+    border: none;
+}
+.things_form .selection_block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.things_form .selection_block select{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    /* border: none; убрать рамку*/ 
+    border-radius: 25px;
+    padding: 10px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- .person_form{
+    max-width: 600px;
+    margin: 40px auto;
+    padding:20px;
+    background-color: rgba(79, 217, 132, 0.963);
+    display: flex;
+    flex-direction: column;
+}
+
+.person_form *+*{
+    margin-top: 20px;
+}
+
+.person_form input{
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.person_form textarea{
+    padding: 20px;
+    border: none;
+    resize: none;
+    /* height: 20px;
+    width: 300px;   размеры окна ввода текста*/
+    background-color: blanchedalmond;
+    border-radius: 10px;
+}
+
+.person_form button{
+    color: rgb(0, 136, 255);
+    background-color: rgba(228, 253, 0, 0.742);
+    border-radius: 40px;
+    padding: 20px;
+    border: none;
+}
+
+.person_form select!!!{
+    padding: 10px;
+    border-radius: 4px;
+} --> 
+
+    

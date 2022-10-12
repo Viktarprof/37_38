@@ -10,7 +10,6 @@
     /* max-width: 1100px; ДЛЯ ЗАДАНИЯ ПОДСТРОЙКИ СТРАНИЦЫ ПОД ШИРИНУ ЭКРАНА */
 }
 
-
 header{
     height: 540px;
     background-position: center;
@@ -45,51 +44,124 @@ header .achievements{
     align-items: center;
     padding: 0 130px;
     height: 300px;
-
 }
+
 header .achievements .value{
-    color:rgb(217, 20, 20);
+    color:rgb(255, 191, 0);
     font-size: 52px;
+    font-style: normal
 }
 header .achievements .unit{
 font-size: 36px;
 font-weight: 500;
 text-transform: uppercase;
 }
+
 header .achievements .descr{
     color:rgb(109, 107, 107);
     font-size: 18px;
 }
 
+h2{
+    text-align: center;
+    font-size: 36px;
+    color: #404149;
+    margin-top: 150px;
+    margin-bottom: 60px;
+}
 
+.cards_container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 
+}
+.projects_cards{
+    width: 350px;
+}
+
+.project_title{
+    text-align: left;
+    font-size: 24px;
+}
+
+.project_descr{
+    text-align: left;
+    color: #999999;
+}
+.divider{
+    width: 55px;
+    height: 6px;
+    background-color: #F7654A;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#smart_projects{
+
+    background-color: #F7654A;
+    height: 155px;
+}
+.creatproect{
+    color:azure;
+    font-size: 38px;
+}
+.creatname{
+    Width: 537px;
+    Height:57px;
+    color: aliceblue;
+    font-size: 20px;
+   
+    margin-top: 20px;
+}
+.button{
+    color: black;
+    align-items: center;
+    text-align: center;
+}
+.one{
+    margin-top: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    
+}
+.two{
+    background-color: aliceblue;
+    width: 140px;
+    height: 50px;
+}
+.lew{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
 
 
 
 /* #main{
-    /* background-color: rgb(43, 162, 67); */
-    /* height: 500px; */
-    /* display: flex; */
-    /* display: line-flex; */
-    /* flex-direction: column; */
-    /* flex-direction: row; */
-    /* flex-direction: column-reverse; */
-    /* justify-content: center; */
-    /* justify-content:space-around; */
-    /* justify-content:space-between; */
-    /* justify-content: space-evenly; */
-    /* align-items: stretch; */
-    /* /align-items: flex-start; */
-    /* align-items: flex-end; */
-    /* align-items: center; 
-}*/
+тестили
 
-
-/* .item{ */
-    /* width: 50px; */
-    /* height: 50px; */
-    /* background-color: rgb(53, 99, 93); */
-    /* color: azure; */
-    /* font-size: 30px; */
-    /* border: 2px solid black; 
-}*/
+    background-color: rgb(43, 162, 67); 
+    height: 500px; 
+    display: flex; 
+    display: line-flex; 
+    flex-direction: column; 
+    flex-direction: row; 
+    flex-direction: column-reverse; 
+    justify-content: center; 
+    justify-content:space-around; 
+    justify-content:space-between; 
+    justify-content: space-evenly; 
+    align-items: stretch; 
+    align-items: flex-start; 
+    align-items: flex-end; 
+    align-items: center; 
+}
+.item{ 
+    width: 50px; 
+    height: 50px; 
+    background-color: rgb(53, 99, 93); 
+    color: azure; 
+    font-size: 30px; 
+    border: 2px solid black; 
+}
+*/
