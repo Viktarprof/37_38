@@ -4,70 +4,68 @@
     box-sizing: border-box;
 }
 
-.things_form{
-    margin: 40px;
-    max-width: 700px;
+.product_form{
+    margin: 40px auto;
+    max-width: 600px;
     background-color: yellow;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: inset 5px 5px 20px  rgb(70, 199, 14);
-    /*iset внутренняя тень*/
+    /*inset внутренняя тень*/
 /*box-shadow: тень по краям*/
 
 }
 
-.things_form *+*{
+.product_form *+*{
     margin-top: 20px;
 }
 
-.things_form input{
+.product_form .selection_block{
+    display: flex;
+    justify-content: space-around;
+}
+
+.product_form .selection_block select{
+    width: 48px;     
+    padding: 10px;
+    border: none;
+ }
+
+.product_form input{
     padding: 10px;
     border: none;
     border-radius: 10px;
-    border-bottom: 3px solid transparent;
 }
-.things_form input:focus{
+
+.product_form input:focus{
         outline: none;
         border-bottom: 3px solid rgb(255, 140, 0);
 }
 
-.things_form textarea{
+.product_form textarea{
     padding: 10px;
-    border: none;
+    border: 2px solid black;
     resize: none;
     /* height: 20px;
     width: 300px;   размеры окна ввода текста*/
     background-color: rgb(241, 152, 17);
     border-radius: 10px;
 }
-.things_form textarea:focus{
+.product_form textarea:focus{
     /* :focus ПСЕВДО КЛАСС */
         outline: none;
         border: 3px solid red;
 }
 
-.things_form button{
+.product_form button{
     color: rgb(0, 136, 255);
     background-color: rgba(0, 253, 202, 0.742);
     border-radius: 40px;
     padding: 20px;
     border: none;
 }
-.things_form .selection_block{
-    display: flex;
-    justify-content: space-between;
-}
-
-.things_form .selection_block select{
-    width: 40%;
-    display: flex;
-    flex-direction: row;
-    /* border: none; убрать рамку*/ 
-    border-radius: 25px;
-    padding: 10px;
- }
 
 
 
@@ -87,7 +85,10 @@
 
 
 
-<!-- .person_form{
+
+
+
+/*.person_form{
     max-width: 600px;
     margin: 40px auto;
     padding:20px;
@@ -109,10 +110,10 @@
 .person_form textarea{
     padding: 20px;
     border: none;
-    resize: none;
+    resize: none;*/
     /* height: 20px;
     width: 300px;   размеры окна ввода текста*/
-    background-color: blanchedalmond;
+   /* background-color: blanchedalmond;
     border-radius: 10px;
 }
 
@@ -124,9 +125,9 @@
     border: none;
 }
 
-.person_form select!!!{
+.person_form select{
     padding: 10px;
     border-radius: 4px;
-} --> 
+}*/
 
     
