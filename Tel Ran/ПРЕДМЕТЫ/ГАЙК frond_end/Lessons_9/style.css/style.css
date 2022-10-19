@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    max-width: 1200px; 
+    margin: 0 auto;
+    /* 1200 px часто встречается
+    такой вариант марджина ЦЕНТРУЕТ сам вроппер */
+}
+nav{
+    /* width: 100%; писать тут не обязательно*/
+    height: 70px;
+    background: #1ABC9C;   
+}
+nav .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 70px;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav ul li+li{
+    /* ПЛСЮ ЭТО найди элемент ли и найди след-й */
+    padding-left: 20px;
+    
+}
+nav .nav-link a{
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.5s;
+    padding: 5px;
+
+}
+nav .nav-link a:hover{
+    box-shadow: 5px 5px 10px black;
+}
+
+
+
+#about_us{
+    display: flex;
+    justify-content: space-between;
+}
+
+#about_us>*{
+    /* 
+    задать картинке и тексту по отдельности размер
+     можно вот так #about_ua>img потом размер в 30% 
+     например и #about_ua>text-container размер 70%
+    ЗАДАЕМ РАЗМЕРЫ КАРТИНКИ И ОКНУ С ТЕКСТОМ */
+    width: 50%;
+}
+
+/* работаем по отдельности с текстом 
+*/ 
+#about_us .header{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#about_us .text-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 70px; /* дали отступ. сверху и снизу ноль а по краям по 70*/ 
+    text-align: justify; /* растянули текст */ 
+}
+#projects{
+    background-color: #DCFFEB;
+    padding: 124px 0;
+}
+#projects h2{
+    font-size: 35px;
+    font-weight: 400px;
+    margin-bottom: 50px;
+    padding: 0 0 0 25px;
+
+}
+
+#projects .card-container{
+    display: flex;
+    justify-content: space-around;
+}
+#projects .card{
+    width: 30%;
+    height: 350px;
+    background-image: url('../media/projects/projects.png');
+    background-size: cover; /* обрезает картинку */
+    position: relative;
+    overflow-y: hidden; /* делаем так что бы текст выплывал снизу вверх */
+}
+
+#projects .info{
+    position: absolute;
+    color: white;
+    bottom: 0;  /* сделали текст снизу */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.381);
+    transform: translateY(100%); /* задвигаем вниз!!!!!
+    делаем так что бы текст выплывал снизу вверх */
+
+}
+#projects .card:hover .info{
+    transform: translateY(0); /* возвращаем обратно в положение ноль!!!!!!!
+    делаем так что бы текст выплывал снизу вверх */
+}
+
+#projects .wrapper{
+    padding: 0 50px;
+}
+
+/* #projects{
+    background-color: #DCFFEB;
+    height: 730px;
+    
+ 
+}
+#projects .text_protcts{
+text-align: left;
+padding: 0px;
+}
+#projects .imags{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */

@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.main{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: rgb(24, 144, 235);
+    /* transition: transform 1s cubic-bezier(0.2, -0.7, 0.66, 1.78),
+                background-color 2s cubic-bezier(0.2, -0.7, 0.66, 1.78),
+                border-radius 2s cubic-bezier(0.2, -0.7, 0.66, 1.78),
+                background-color 2s cubic-bezier(0.2, -0.7, 0.66, 1.78); */
+                
+    transition: border-radius, transform, background-color, background-color;
+    transition-timing-function: cubic-bezier(0, -1.84, 1, 3.31, 2.06);
+    transition-duration: 2s;
+}
+
+.main:hover{
+    background-color: orange;
+    transform: rotate(365deg);
+    box-shadow: 5px 5px 50px black;
+    border-radius: 50%;
+    
+
+}
+
+.target{
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px solid black;
+    /* transform: scale(2) rotate(45deg); */
+    /*transform: skew(20deg); смещение элемента*/
+    /*transform: scale(2);   размер */
+    /* transform: rotate(45deg); градусы. поворот элемента */
+
+    background-color: rgb(108, 206, 167);
+    border-radius: 5px;
+    transition:  transform 1s cubic-bezier(0.2, -0.7, 0.66, 1.78),
+                height 2s cubic-bezier(0.14, -0.91, 0.32, 2.06);
+
+}
+
+.target:hover{
+    transform: rotate(45deg) scale(0.5);
+    background-color: aqua;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;  /* поменл квадрат на круг */
+} 
+.box{
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    position: relative;
+}
+.box:after{
+    content: 'new!';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: rgb(241, 84, 84);
+    transform: translate(50%, -50px);
+    color: white;
+    
+}
+/* .box:hover{
+    border-radius: 10px;
+} */
+.addUsserForm{
+    background-color: rgb(72, 72, 244);
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.addUsserForm input{
+    padding: 5px;
+    border: none;
+    transition: box-shadow, transform;
+    transition-duration: 0.5s;
+    position: relative;
+}
+.input_container:after{
+    content:'';
+    position: absolute;
+    bottom: -3px;
+    left:0;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+
+}
+
+/* .addUsserForm input::placeholder{
+    color: black;
+} ПОМЕНЯЛИ ЦВЕТ В ПЛЕЙСХОЛДЕРЕ*/
+
+.addUsserForm input:focus{
+    outline: none;
+    box-shadow: 0 0 20px black;
+    transform: scale(1.1);
+}
+
+.addUsserForm button{
+    padding: 5px;
+    border: none;
+    background-color: aquamarine;
+    color: rgb(0, 0, 0);
+    transition: box-shadow, transform;
+    transition-duration: 0.5s;
+   
+}
+.addUsserForm button:focus{
+    outline: none;
+    box-shadow: 0 0 10px black;
+    transform: scale(1.2);
+}
