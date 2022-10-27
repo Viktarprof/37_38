@@ -1,0 +1,81 @@
+   0 mkdir /tmp/1
+   1 ls 
+   2 cd /123
+   3 ls
+   4 date
+   5 cd /bin/
+   6 ls
+   7 pwd
+   8 cat /etc/os-release 
+   9 touch /tmp/1.txt
+  10 clear  
+  11 cd
+  12 date
+  13 date > date.txt
+  14 ls
+  15 cat date.txt 
+  16 date >> date.txt 
+  17 cat date.txt 
+  18 date >> date.txt 
+  19 cat date.txt 
+  20 date > date.txt 
+  21 cat date.txt 
+  22 df 
+  23 df -h
+  24 df --help
+  25 clear
+  26 cat /etc/group
+  27 cat /etc/group | head
+  28 cat /etc/group | tail
+  29 cat /etc/group | tail -3
+  30 cat /etc/group | head -3
+  31 cat /etc/group | head -3 | tail -1
+  32 cat /etc/group | head -3 | tail -1 >> date.txt 
+  33 cat date.txt 
+  34 clear
+  35 cat /etc/group | wc
+  36 wc --help
+  37 cat /etc/group | wc -l
+  38 cat /etc/group 
+  39 cat /etc/group | wc
+  40 cat /etc/group | head -1
+  41 cat /etc/group | grep root
+  42 cat /etc/group | grep root 
+  43 cat /etc/group | grep root | tail -1 >> date.txt 
+  44 cat /etc/group | grep -w user2
+  45 df -h | grep /
+  46 df -h | grep -w /
+  47 df -h | grep -w 47%
+  48 df -h | head -2
+  49 df -h | head -2 | tail -1
+  50 clear
+  51 df -h 
+  52 cd /var/
+  53 ls
+  54 ps -ef
+  55 clear
+  56 df -h
+  57 df -h | head -2 | tail -1
+  58 df -h | grep -w /
+  59 df -h | head -1
+  60 df -h | head -2
+  61 df -h | head -2 | tail -1
+  62 df -h | head -2 | tail -1 | awk '{print $1}'
+  63 df -h | head -2 | tail -1 | awk '{print $5}'
+  64 df -h | head -2 | tail -1 | awk '{print $5}' | sed 's/%/*/'
+  65 df -h | head -2 | tail -1 | awk '{print $5}' | sed 's/%//'
+  66 cd
+  67 df -h | head -2 | tail -1 | awk '{print $5}' | sed 's/%//' >> date.txt 
+  68 cat date.txt 
+  69 touch date.txt 
+  70 cat date.txt 
+  71 >> date.txt 
+  72 cat date.txt 
+  73 grep -4 is date.txt  
+  74 grep -4 date.txt  
+  75 grep -n date.txt  
+  76 clear
+  77 df -h | head -2 | tail -1 | awk '{print $5}' | sed 's/%//'
+  78 df -h | grep -o 47
+  79 df -h | grep -w / | awk '{print $5}' | sed 's/%//'
+  80 history > history_28_09.txt
