@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    width: 1200px;
+}
+nav .pre_heder{
+    display: flex;
+    justify-content:  space-around;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #C1C1C1;
+}
+nav .lokation{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+
+    
+ }
+
+ .lokation ul{
+    display: flex;
+    flex-direction: row;
+    color: #7A7A7A;
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 16px;
+    list-style: none;
+    gap:10px;
+    cursor: pointer;
+
+}
+.menu ul{
+    display: flex;
+    align-content: space-around;
+    flex-direction: row;
+    gap: 20px;
+    color: #7A7A7A;
+    font-weight: 400;
+    font-size: 16px;
+    list-style: none;
+    cursor: pointer;
+}
+.number{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #7A7A7A;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    gap: 5px;
+}
+.pre_heder{
+    background-color: white;
+}
+header .pre_heder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    border: 1px solid #C1C1C1;
+}
+
+.header_menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.header_menu ul{
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #444444;
+    font-weight: 400;
+    font-size: 14px;
+    padding-left: 20px;
+    gap: 20px
+}
+.logo_menu{
+    width: 20px;
+    height: 20px;
+    gap: 20px;
+}
+
+.btn{
+    background-color: white;
+    border: none;
+}
+
+.pre_heder_logo{
+    display: flex;
+    justify-content:flex-start;
+}
+.pre_heder_btn .btn{
+   padding: 20px;
+}
+.header2 {
+    height: 250px;
+    border: 1px solid #C1C1C1;
+    position: relative;
+}
+.header2 h1{
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    font-weight: 600;
+    font-size: 32px;
+    color: #444444;
+    height: 75px;
+    left: 169.33px;
+    top: 120.29px;
+    width: 670px;
+}
+.header3>*{
+    border: 1px solid #C1C1C1;
+    width: 40%;
+    height: 458px;
+}
+.header3 .text{
+    /* width: 569px;
+    height: 339px; */
+    order: 1px solid #C1C1C1;
+}
+.header3 p{
+    /* width: 569px;
+    height: 339px; */
+    font-size: 14px;
+    color: #7A7A7A;
+}
+
+/* 
+    задать картинке и тексту по отдельности размер
+     можно вот так #about_ua>img потом размер в 30% 
+     например и #about_ua>text-container размер 70%
+    ЗАДАЕМ РАЗМЕРЫ КАРТИНКИ И ОКНУ С ТЕКСТОМ */
