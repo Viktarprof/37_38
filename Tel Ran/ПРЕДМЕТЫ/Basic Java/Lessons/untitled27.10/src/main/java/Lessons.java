@@ -1,10 +1,25 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 public class Lessons {
     public static void main(String[] args) {
 
-    }
+                int words = 0;  								//моих слов на начальном этапе задачи ноль
+                Scanner scanner = new Scanner(System.in);  		//выводим сканер
+                System.out.println("Напиши свой текст"); 		//просим ввести слова в сканере
+                String input = scanner.nextLine(); 				//считываем след стокой введенный текст
+                if (input.length() != 0) {					// условие . 	тут мне было трудно как и дома
+                    words++;
+                    for (int i = 0; i < input.length(); i++) {
+                        if (input.charAt(i) == ' ') {
+                            words++;
+                        }
 
-    
-}
+                    } System.out.println("Вы ввели " + words + "слов");
+                }
+            }
+        }
 //static void les_27_10 (){
     //        int[] intArray0;
 //        intArray0 = new int[3];

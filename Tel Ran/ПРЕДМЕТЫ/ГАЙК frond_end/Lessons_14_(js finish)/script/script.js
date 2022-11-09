@@ -2,6 +2,7 @@
 // function range (value_1, value_2){
 //     let start, end;
 
+
 //     if (value_1 > value_2){
 //         start = value_2;
 //         end = value_1;
@@ -46,11 +47,8 @@
 //     return result
 // }
 
-// const a = range(2,10);
-// const b = range(15,5);
-// console.log(a);
-// console.log(b);
-
+// console.log(range(2,10));
+// console.log(range(15,5));
 
 
 
@@ -63,7 +61,6 @@
 // let sum = 0;
 // for (let i = 0; i < list.length; i++){
 //     sum += list[i]
-    
 // } 
 // console.log(sum)
 
@@ -108,23 +105,22 @@
 // Напишите функцию, которая в качестве аргумента получает массив из чисел и возвращает объект со свойствами min, max, avg с соответствующими значениями по массиву.
 // const list = [12, 4, 32, 5, 43, 4, 32, 1, 54, 2];
 // function object(list){
-//     let max = list[0]; // или так найти MAX  let max = 0;
+//     let max = list[0];                       // или так найти MAX  let max = 0;
 //     let min = list[0];
 //     let sum = 0;
 
-//     for (let i = 1; i < list.length; i++){
-//                 // или так найти MAX for (let i = 0; i < list.length; i++){ 
-//         if (max < list[i]){ //спрашиваем является ЛИ MAX большим в list
+//     for (let i = 1; i < list.length; i++){   // или так найти MAX for (let i = 0; i < list.length; i++){ 
+//         if (max < list[i]){                  //спрашиваем является ЛИ MAX большим в list
 //             max = list[i];
-//         }else if (min > list[i]) {  // спрашиваем является ЛИ MIN меньшим в list
+//         }else if (min > list[i]) {           // спрашиваем является ЛИ MIN меньшим в list
 //             min = list[i];
 //         } 
-//         sum += list[i];  // считаем сумму всех чисел массива
+//         sum += list[i];                      // считаем сумму всех чисел массива
 //     }
 //     return {
 //         max: max,
 //         min: min,
-//         avg: sum / list.length // выводим сумму чисел массива и находим среднее делим на длинну массива
+//         avg: sum / list.length               // выводим сумму чисел массива и находим среднее делим на длинну массива
 //     }
 // }
 // console.log(object(list));
@@ -206,7 +202,7 @@
 // ]
 // for( let i = 0; i < products.length; i++){
 // const {title, price} = products[i]
-// console.log(`${title} - (${price})`) // или так можно решить
+// console.log(`${title} - (${price})`)                         // или так можно решить
 
 // }
 // console.log(`${products[i].title} - (${products[i].price})`) // или так можно решить
@@ -264,40 +260,40 @@
 
 // написать цикл, которвый считает общую сумму price
 // в конце выведите ее
-const products = [
-        {
-            id: 1,
-            title: "велосипед",
-            price: 45000,
-            discount: 10
-        },
-        {
-            id: 2,
-            title: "ролики",
-            price: 15000,
-            discount: 5
-        },
-        {
-            id: 3,
-            title: "самокат",
-            price: 10000,
-            discount: 30
-        },
-        {
-            id: 4,
-            title: "лыжи",
-            price: 25000,
-            discount: 20
-        },
-        {
-            id: 5,
-            title: "скейт",
-            price: 10000,
-            discount: 0
-        }
-    ]
-    let sum_price = 0;
-for (let i = 0; i < products.length; i++){
-    sum_price += products[i].price;
-}
-console.log(sum_price)
+// const products = [
+//         {
+//             id: 1,
+//             title: "велосипед",
+//             price: 45000,
+//             discount: 10
+//         },
+//         {
+//             id: 2,
+//             title: "ролики",
+//             price: 15000,
+//             discount: 5
+//         },
+//         {
+//             id: 3,
+//             title: "самокат",
+//             price: 10000,
+//             discount: 30
+//         },
+//         {
+//             id: 4,
+//             title: "лыжи",
+//             price: 25000,
+//             discount: 20
+//         },
+//         {
+//             id: 5,
+//             title: "скейт",
+//             price: 10000,
+//             discount: 0
+//         }
+//     ]
+//     let sum_price = 0;
+// for (let i = 0; i < products.length; i++){
+//     sum_price += products[i].price;
+// }
+// console.log(sum_price)

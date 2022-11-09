@@ -54,16 +54,14 @@
 
 
 //___________________________________________________
-// написать цикл, который все отрицательные значения меняет на 
-//положительгные
+// написать цикл, который все отрицательные значения меняет на положительгные
 // до: [12, -4, 32, -23, 4, -3, 5, 43]
 // после: [12, 4, 32, 23, 4, 3, 5, 43]
 
 // const arr = [12, -4, 32, -23, 4, -3, 5, 43];
 // for (let i = 0; i < arr.length; i++){
 //     if (arr[i] < 0) {
-//         arr[i] = -arr[i];
-//         //-arr[2, 4, 6] == arr [2, 4, 6]
+//         arr[i] = -arr[i]; 
 //     }
 // }
 // console.log(arr)
@@ -80,8 +78,8 @@
 //  !!!!!!!!!!!!!!    НОВАЯ ТЕМА     !!!!!!!!!!!!!!!!
 
 //___________________________________________________________
-// const user = [`Viktor`, 31, 176];
-// console.log(user[0]);
+// const user = [`Viktor`, 31, 176]; указал свой массив
+// console.log(user[0]); начал выводить значения массива с указанием его индекса в самом массиве
 // console.log(user[1]);
 // console.log(user[2]);
 //___________________________________________________________
@@ -103,12 +101,12 @@
 //     name: `Viktor`,
 //     age: 29,
 //     height: 176
-// };
-// user[`name`] = `Haik`;
-// user[`gender`] = `m`;
-// // user.name= `Haik`;   //тот же самы ваариант что и выше
-// // user.gender= `m`;    //тот же самы ваариант что и выше
-// console.log(user)
+//};
+//user[`name`] = `Haik`;
+//user[`gender`] = `m`;
+ //user.name= `Haik`;   //тот же самы ваариант что и выше
+ //user.gender= `m`;    //тот же самы ваариант что и выше
+//console.log(user)
 
 
 
@@ -123,6 +121,9 @@
 // };
 // console.log(product.title);
 // console.log(product.price);
+
+
+
 
 
 
@@ -153,7 +154,7 @@
 //console.log(product)
 // сделали цикл и через цикл вывели значения title 
 //for (let i = 0; i < product.length; i++) // УСЛОВВИЕ ПРОГОНА массива
-    //console.log(product[i].title);
+    //console.log(product[i].title); указали только название продукта
 
 
 
@@ -184,7 +185,7 @@
 //     }
 // ]
 // for (let i = 0; i < product.length; i++)
-//     //console.log(product[i].title , product[i].price); сделал сам
+//                                                  //console.log(product[i].title , product[i].price); сделал сам
 //     console.log(`${product[i].title} (${product[i].price})`); // вот как надо
 
 
@@ -295,43 +296,3 @@
 //     }
 // }
 // console.log(result);
-
-
-
-
-
-
-
-
-
-//___________________________________________________________
-
-const product = [
-    {
-        id: 1,
-        title: 'Bike',
-        price: 45000,
-        discount: 30
-    },
-    {
-        id: 2,
-        title: 'Auto',
-        price: 25000,
-        discount: 20
-    },
-    {
-        id: 3,
-        title: 'Ship',
-        price: 17000,
-        discount: 10
-    }
-    ];
-
-const result =[];
-for (let i = 0; i < product.length; i++){
-    const {title, discount} = product[i];
-    if (discount > 12){
-        result.push(title);
-    }
-}
-console.log(result);

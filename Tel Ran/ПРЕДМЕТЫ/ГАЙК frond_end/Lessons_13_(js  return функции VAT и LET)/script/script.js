@@ -1,6 +1,4 @@
-// 1) создать объект user со свойствами name, 
-//lastname и age и задать
-// какие-нибудь значения
+// 1) создать объект user со свойствами name, lastname и age и задать какие-нибудь значения
 
 // const user = {
 //         name: `Viktor`,
@@ -32,17 +30,11 @@
 //     const result = value ** 2;
 //     console.log(result);
 // }
-// power(13 - 5); // можно делать и так 
-// power(14); // прописываем за скобками 
+// power(13 - 5);  // так задаем значения аргументу VALUE
+// power(14); // можно делать и так
 // power(15);
 // power(16);
 // power(17);
-
-// for (let i = 0; i < 0; i++){ . 
-//     power(i);
-// }
-
-
 
 
 
@@ -51,8 +43,8 @@
 
 //______________________________
 
-// function power(value, p){
-//     const result = value ** p;
+// function power(value, p){ // указываем аргументы
+//     const result = value ** p; //тут указываем то с нашими аргументами делать
 //     console.log(result);
 // }
 // power(12, 2); // задали степень в функции POWER. 
@@ -62,10 +54,11 @@
 
 
 
-//______________________________
 
-// function power(value, p=2){
-//     const result = value ** p;
+
+//______________________________
+// function power(value, p=2){ //тут мы указали то наш второй аргумент будет всегда 2
+//     const result = value ** p; // ут указываем то с нашими аргументами делать
 //     console.log(result);
 // }
 // power(12); // задали степень в функции POWER. 
@@ -75,8 +68,9 @@
 
 
 
-//____________return__________________
 
+
+//____________return__________________
 // function power (value, p = 2){
 //     const result = value ** p;
 //     return result
@@ -85,43 +79,27 @@
 // const val_2 = power(10, 3);
 // const val_3 = power(5);
 
-// console.log(val_1, val_2, val_3);
-// console.log(val_1 + val_2 + val_3);
+// console.log(val_1, val_2, val_3); //тут просто возвели все значения из функции POWER
+// console.log(val_1 + val_2 + val_3); // возвели все значения из функции в степень и СЛОЖИЛИ
+
+
 
 
 
 //______________________________
 // function power (value, p = 2){
-//         const result = value ** p;
-//         return result
+//     const result = value ** p;
+//     return result
 // }
 
 // // aˆ2 + bˆ2 = cˆ2
 
 // const cat_1 = power(3);
 // const cat_2 = power(4);
-// const hip = power(cat_1 + cat_2, 0.5);        // 0.5 это корень квадратный
-// console.log(hip);                // 3 возводит в степень и 4 возводит в степень,
-//потом все склыдвает  и 0.5
+// const hip = power(cat_1 + cat_2, 0.5);     // 0.5 это корень квадратный
+// console.log(hip);          // 3 возводит в степень из функции power и 4 возводит в степень из функции power, потом все склыдвает и 0.5
 
 
-
-
-
-//______________________________
-// написать функцию check которая в качестве аргумента получает
-// число и возвращает ДА если оно четное и НЕТ в ином случае
-
-// function check (value){
-//     if (value %2 === 0){
-//         return 'yes'
-//     }else{
-//         return 'no'
-//     }
-// }
-// console.log(check(12));
-// console.log(check(13));
-// console.log(check(14));
 
 
 
@@ -132,16 +110,15 @@
 // написать функцию check которая в качестве аргумента получает
 // число и возвращает true если оно четное и false в ином случае
 // function check (value){
-//         if (value %2 === 0){
-//             return true
-//         }else{
-//             return false
-//         }
-//     }
+//      if (value %2 === 0){
+//          return true
+//      }else{
+//          return false
+//      }
+//  }
 // console.log(check(12));
 // console.log(check(13));
 // console.log(check(14));
-
 
                   // тоже самое решение только по короче
 // function check (value){
@@ -162,7 +139,7 @@
 //             const result = value ** p;
 //             return result
 //     }
-//     power(12, 2);
+//     console.log(power(12, 2));
 //console.log(return); // тут не отработает
 
 // __ _ _ _ _ _ __ _ _ _ _ __ _ _ _ _ __ _ _
@@ -252,16 +229,16 @@
 
 //___________________________________________
 // const arr = [123, 4, 32, 5, 3, 2, 53];
-// for (let i = 0; i < 10; i++){
-//     console.log(i)
+// for (let i = 0; i < 10; i++){ 
+//     console.log(i); // так выведем только массив от 0 до 10
 // }
 
 
 // const arr1 = [123, 4, 32, 5, 3, 2, 53];
 // for (let i = 0; i < arr1.length; i++){
-//     console.log(arr1[i])
+//     console.log(arr1[i]) //так выведем весь массив из arr1
 // }
-// console.log('Покажи третье значение и второе' + arr1[3], arr1[2])
+// console.log('Покажи третье значение и второе = ' + arr1[3], arr1[2])
 
 
 
