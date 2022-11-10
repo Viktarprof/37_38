@@ -238,53 +238,53 @@
 //_____________________________________________________________
 /* добавить у товаров значение количества */
 
-const words = [
-    {
-        title: 'велосипед',
-        price: 45000,
-        count: 4
-    },
-    {
-        title: 'самокат',
-        price: 55000,
-        count: 10
-    },
-    {
-        title: 'ролики',
-        price: 75000,
-        count: 7
-    },
-    {
-        title: 'скейт',
-        price: 25000,
-        count: 2
-    },
-    {
-        title: 'сноуборд',
-        price: 5000,
-        count: 1
-    }
-];
- const rootElem = document.querySelector('#root');
+// const words = [
+//     {
+//         title: 'велосипед',
+//         price: 45000,
+//         count: 4
+//     },
+//     {
+//         title: 'самокат',
+//         price: 55000,
+//         count: 10
+//     },
+//     {
+//         title: 'ролики',
+//         price: 75000,
+//         count: 7
+//     },
+//     {
+//         title: 'скейт',
+//         price: 25000,
+//         count: 2
+//     },
+//     {
+//         title: 'сноуборд',
+//         price: 5000,
+//         count: 1
+//     }
+// ];
+//  const rootElem = document.querySelector('#root');
   
-    function addWord(title_value, price_value,count_value){
-        const container = document.createElement('div');// создаем див
-        const title = document.createElement ('p');     //создаем параграф
-        const price = document.createElement ('p');     //создаем параграф
-        const count = document.createElement ('p');     //создаем параграф
-        title.innerText = title_value;                  // задаем значения
-        price.innerText = price_value;
-        count.innerText = count_value;
-        container.append(title, price,count)            // добавляем значения в элемент контайнер 
-        return container                                // возвращаем 
-}
+//     function addWord(title_value, price_value,count_value){
+//         const container = document.createElement('div');// создаем див
+//         const title = document.createElement ('p');     //создаем параграф
+//         const price = document.createElement ('p');     //создаем параграф
+//         const count = document.createElement ('p');     //создаем параграф
+//         title.innerText = title_value;                  // задаем значения
+//         price.innerText = price_value;
+//         count.innerText = count_value;
+//         container.append(title, price,count)            // добавляем значения в элемент контайнер 
+//         return container                                // возвращаем 
+// }
 
-    for (let i = 0; i < words.length; i++){
-    const {title, price, count} = words[i];
-    const new_elem = addWord(title, price, count); // добавляем название товара из масссива объектов
-    rootElem.append(new_elem);
+//     for (let i = 0; i < words.length; i++){
+//     const {title, price, count} = words[i];
+//     const new_elem = addWord(title, price, count); // добавляем название товара из масссива объектов
+//     rootElem.append(new_elem);
 
- }
+//  }
  
 
 
@@ -299,15 +299,15 @@ const words = [
     <p>второй пункт</p>
 </div> */
 
-const rootElem1 = document.querySelector('#root');
-const container = document.createElement('div');
-const new_elem1 = document.createElement('p');
-const new_elem2 = document.createElement('p');
+// const rootElem1 = document.querySelector('#root');
+// const container = document.createElement('div');
+// const new_elem1 = document.createElement('p');
+// const new_elem2 = document.createElement('p');
 
-new_elem1.innerText = 'Hello World';
-new_elem2.innerText = 'Hello World';
-container.append(new_elem1, new_elem2)
-rootElem1.append(container);
+// new_elem1.innerText = 'Hello World';
+// new_elem2.innerText = 'Hello World';
+// container.append(new_elem1, new_elem2)
+// rootElem1.append(container);
 
 
 
