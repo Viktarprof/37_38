@@ -8,42 +8,41 @@
     width: 450px;
     height: 250px;
     border: 1px solid rgb(202, 202, 202);
-    background-color: rgb(239, 239, 239);
+    background-color: rgba(66, 99, 245, 0.789);
     overflow: hidden;
 }
 .tab{
     overflow: hidden;
-    border: 1px solid #ccc;
+    padding: 5px;
     border-bottom: none;
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
     display: flex;
     justify-content: space-around;
+   
 
 }
 
-button {
+.tab button  {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(36, 241, 122);
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    transition: 0.3s;
+    transition: 1s;
+    box-shadow: 5px 5px 20px rgb(143, 210, 140);
     
 }
 
-button:hover {
+.tab button:hover {
     background-color: rgb(255, 255, 255);
+    color:bisque;
+    scale: 1.5;
 }
 
-button.active {
-    background-color: rgb(208, 196, 196);
-}
-
-.cards{
-    display: flex;
-    justify-content: center;
+.tab button.active {
+    background-color: rgb(196, 208, 207);
 }
 
 .tabcontent {
@@ -64,6 +63,7 @@ button.active {
 }
 
 .name p{
+
     text-align: left;
     border-bottom: 2px solid rgb(165, 164, 164)
 }

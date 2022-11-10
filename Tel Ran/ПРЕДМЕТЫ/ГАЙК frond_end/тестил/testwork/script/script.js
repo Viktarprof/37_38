@@ -12,11 +12,13 @@ function openTAB(evt, tablik_1_2_3_4){
     tablinks = document.getElementsByClassName("tablinks");
     
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace("active", "");
     }
-
-    document.getElementById(tablik_1_2_3_4).style.display = "block";
-    evt.currentTarget.className += "active";
+        const btn = document.getElementById(tablik_1_2_3_4);
+        btn.style.display = "block";
+        btn.classList.toggle('active');
+    // document.getElementById(tablik_1_2_3_4).style.display = "block";
+//     evt.currentTarget.className += " active";
 }
 
 
