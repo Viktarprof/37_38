@@ -10,6 +10,8 @@
     border: 1px solid rgb(202, 202, 202);
     background-color: rgba(66, 99, 245, 0.789);
     overflow: hidden;
+    box-shadow: 5px 5px 50px rgb(144, 140, 210);
+
 }
 .tab{
     overflow: hidden;
@@ -42,7 +44,7 @@
 }
 
 .tab button.active {
-    background-color: rgb(196, 208, 207);
+    background-color: rgb(200, 254, 7);
 }
 
 .tabcontent {
