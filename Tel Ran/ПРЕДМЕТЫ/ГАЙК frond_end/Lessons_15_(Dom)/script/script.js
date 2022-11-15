@@ -23,7 +23,7 @@
 
 
 
-// const p_list = document.querySelectorAll('p');// querySelectorAll считывает ВСЕ элементы в HTML с Р
+// const p_list = document.querySelectorAll('p');// querySelectorAll считывает !!!ВСЕ!!! элементы в HTML с Р
 // console.log(p_list);
 // for(let i = 0; i < p_list.length; i++){
 //     console.log(p_list[i].innerText);// innerText ввыводит текст нашего объекта. без него был бы просто обнет из которого нужно достать инф-ю
@@ -35,7 +35,7 @@
 
 
 //_____________________________________________________________
-//<!-- вывести текст из параграфа с классом  info_text которы находится в div с классом info-->
+// <!-- вывести текст из параграфа с классом  info_text которы находится в div с классом info-->
 // const p_elem = document.querySelector('.info .info_text')
 // console.log(p_elem.innerText);
    
@@ -54,12 +54,28 @@
 // }console.log(result);
 
 
+// Задача 3.
+// Запрашивать у пользователя Марку и Цену ноутбука три раза.
+// Марку и цену ноутбука объединять в объект и добавлять(push) в массив laptops=[]-пустой
+// Итого будет массив из трех объектов.
+
+const laptops=[]
+for(i = 0; i < 3; i++) {
+    laptops[i]= prompt('Ввеите марку компьютера');
+    laptops[i]= + prompt('Ввеите цену компьютера');
+
+   // let result = prompt ('x +z');
+    
+} console.log(laptops)
+
+
+
 
 //_____________________________________________________________
-// const info_elem = document.querySelector('.info'); //3. вызываем класс куда нужно добавить новый элемент
 
 // const new_elem = document.createElement('p') //1.создали новый элемент
 // new_elem.innerText = 'привет'; // 2. считали наш новый элемент. НО он не выводится
+// const info_elem = document.querySelector('.info'); //3. вызываем класс куда нужно добавить новый элемент
 // info_elem.append(new_elem); // 4.добавить 
 
 
@@ -80,7 +96,7 @@
 //_____________________________________________________________
 // создать div 
 // написать процесс, который для каждого слова из массива  создает параграф и добавляет его в div с идентификатором root
-//  const rootElem = document.querySelector('#root');
+//  const rootElem = document.querySelector('#root'); // выбран один ID
 
 //  const words = ['велосипед', 'самокат', 'ролики', 'скейт', 'сноуборд'];
 
@@ -94,21 +110,20 @@
 
 
 //_____________________________________________________________
-// преобразовать процесс таким образом, чтобы професс создания 
-// параграфа был вынесен в отдельную функцию
+// преобразовать процесс таким образом, чтобы професс создания  параграфа был вынесен в отдельную функцию
 // функция должна получать в качестве аргумента слово и возвращать параграф
 // const words = ['велосипед', 'самокат', 'ролики', 'скейт', 'сноуборд'];
 
 //  const rootElem = document.querySelector('#root');
-//     function addWord(words){
-//     const elem = document.createElement('p');
-//     elem.innerText = words; // тут задаем какой будет текст наших параграфов
-//     return elem
-// }
-//  for (let i = 0; i < words.length; i++){
-//     const new_elem = addWord(words[i]);
-//     rootElem.append(new_elem);
-//   }
+//      function addWord(words){
+//      const elem = document.createElement('p');
+//      elem.innerText = words; // тут задаем какой будет текст наших параграфов
+//      return elem
+//  }
+//   for (let i = 0; i < words.length; i++){
+//      const new_elem = addWord(words[i]);
+//      rootElem.append(new_elem);
+//    }
 
 
 
