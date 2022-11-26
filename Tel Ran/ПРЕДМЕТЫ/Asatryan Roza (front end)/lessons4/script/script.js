@@ -1,25 +1,33 @@
 // const arr = [1, 2, 3, 4, 5, 6];
-// arr.push(7, 8 ,9, 10, 11);
-// console.log(arr.length);
+// arr.push(11, 10 , 8, 7, 6);
+// console.log(arr);
 // console.log(arr[arr.length -1]) //последний элемент массива
+//======================================
 
-// let arr1 = [1, 2, 3, 4, 5, 6];
-// let arr2 = [];
-// arr2.push[arr1[0]*2]
-// arr2.push[arr1[1]*2]
-// arr2.push[arr1[2]*2]
-// arr2.push[arr1[3]*2]
-// arr2.push[arr1[4]*2]
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [];
+// arr2.push(arr1[0] * 2)
+// arr2.push(arr1[1] * 2)
+// arr2.push(arr1[2] * 2)
+// arr2.push(arr1[3] * 2)
+// arr2.push(arr1[4] * 2)
 // console.log(arr2)
 
+// for(let i = 0; i < arr1.length; i++){
+//   arr2.push(arr1[i] * 2);
+// }
+// console.log(arr2)
+
+
 //======================================
+// ЦИКЛЫ - for, while, do while
 
 // //for
 // for (let i = 0; i <= 5; i++){
 // console.log('цикл for ' + i);
 // }
 
-// //while
+//  //while
 // let i = 0;
 // while(i < 6){
 //   console.log('цикл while ' + i)
@@ -27,22 +35,31 @@
 // }
 
 // // do while
-// let j = 0
+// let j = -1;
 // do { console.log('цикл do while ' + j);
 // j++
 // } while (j < 6)
+
+
 //======================================
  
-// const arr1 = [1, 2, 3, 4, 5, 6];
+// const arr1 = [1, 4, 8, -5, 2, -3, 1];
 // const arr2 = [];
 // for (let i = 0; i <= arr1.length; i++){
 //   arr2.push(arr1[i] * 2);
 // }
 // console.log(arr2);
 
-// const arr1 = [1, 2, 8, -4, 15, 0];
-// for (let i = 0; i <arr1.length; i++){
-//   if (arr1[i] < 0) 
+
+
+//for of  - element
+//for in  - index
+
+
+// const arr1 = [1, -2, 8, -4, 15, 0, 33, -10];
+// for (let i = 0; i < arr1.length; i++){
+//   if (arr1[i] > 0) // то что больше нуля
+//   if (arr1[i] < 0) // то что меньше нуля
 //   console.log(arr1[i]);
 // }
 //======================================
@@ -54,17 +71,22 @@
   
 //     console.log(arr1[index]);
 
-//  if(arr1[index] %2 == 0)
-//   console.log('%2 = ' + arr1[index])
+//  if (arr1[index] % 2 == 0)
+//   console.log('even %2 = ' + arr1[index])
 // }
 //======================================
 
 
-// const arr1 = [1, -2, 8, -4, 15, 0, 7, 15];
+// const arr1 = [1, -2, 8, -4, 15, 0, 7, -15];
 // for (let num of arr1){ // of для элементов в массиве (что в массиве)
 //   console.log(num)
 // }
+
 //======================================
+// //от 6 - 0;
+// for(let i = 6; i >= 0; i--){
+//   console.log(i);
+// }
 
 
 // const arr1 = [1, -2, 8, -4, 15, 0, 7, 15];
@@ -73,44 +95,64 @@
 // }
 
 //======================================
-// let arr = ['dog', 'cat', 'dog', 'fish'];
-// let arr2 = [];
+//// "dog" - "собака"
+//// "cat" - "кошка"
+//// "fish" - "рыба"
 
-// for (let i = 0; i < arr.length; i++){
-//   if (arr.length === 'dog'){
-//   arr2.push('это собака');
-// } else if (arr.length === 'cat') {
-//   arr2.push('это кошка');
-// } else (arr.length === 'fish')
-//   arr2.push('это рыба');
+// let eng = ["dog", "cat", "dog", "fish", "fish"];
+// let rus = [];
+//// первый  вариант
+// for (let i = 0; i < eng.length; i++){
+//   if (eng[i] === 'dog'){
+//   rus.push('это собака');
+// } else if (eng[i] === 'cat') {
+//   rus.push('это кошка');
+// } else {
+//    rus.push('это рыба');
+//  }
+// }
+// console.log(rus)
 
-// } 
-// console.log(arr2)
 
-
-// for (let animal of arr){
+//// второй вариант
+// for (let animal of eng){
 //   if (animal === 'dog'){
-//   arr2.push('собака');
+//   rus.push('собака');
 // } else if (animal === 'cat'){
-//   arr2.push('кошка')
+//   rus.push('кошка')
 // } else{
-//   arr2.push('рыба')
+//   rus.push('рыба')
 // }
 // }
-// console.log(arr2)
+// console.log(rus)
 //======================================
 
 
 // const animal = {
 //   dog_name: 'Rex',
 //   dog_age: 7,
-//   dog_color: 'black'
-
+//   dog_type: 'small',
+//   "dog color": "black"
 // }
-// // dote notaition
+// // animal.dog_name = "Tsyapa";
+
+// //// dote notaition
 // console.log(animal.dog_name);
-// // bracket natation
+// //// bracket natation
+//  console.log(animal["dog color"]);
 // console.log(animal['dog_name']); // в том случае если в нашем dog name ест пробел; или изменить значение нашего dog_name
+// for(let i = 0; i < 2; i++){
+//   animal[`dog${i}`] = 3;
+// }
+
+// animal.dog_size = "small";
+
+// console.log(animal);
+
+
+
+//======================================
+
 
 // const items = [
 //   {
@@ -146,12 +188,13 @@
 //   //result = result + obj.price
 //   result += obj.price
 //   console.log('я покажу каждое сложение ' + result)
+//  }
+//  console.log('я покажу сложение = ' + result)
 
-// }
-// items[0].discont =  0.3;
+// items[0].discont =  30;
 // let priceWhithDiscount = items[0].price * items[0].discont;
 // console.log(priceWhithDiscount);
-// console.log('Конечный результат = ' + result);
+
 //============================================================
 
 
@@ -175,7 +218,7 @@
 
 
 // function testNum(number){
-//   if (number %2 ===0){
+//   if (number % 2 === 0){
 //     console.log('number is evev')
 //   } else{
 //     console.log('number is odd')
@@ -189,21 +232,22 @@
 
 
 // let arr = [ 2, 5, 8, 9, 4, 1]
-// for( let num of arr){
+// for (let num of arr){
 //   testNum(num)
 // }
-//++++++++++++++++++++++++++++++++++++++
-function testNum(number){
-   if (number % 2 === 0){
-  return 'number is even = ';
-  }else{
-  return 'number is odd = ';
-  }
-}
-  let arr = [2, 5, 8, 9, 4, 1]
-for( let num of arr){
-  let result = testNum(num);
-  console.log(result + num)
-}
+
 //++++++++++++++++++++++++++++++++++++++
 
+// function testNum(number){
+//    if (number % 2 === 0){
+//   return 'number is even = ';
+//   }else{
+//   return 'number is odd = ';
+//   }
+// }
+//   let arr = [2, 5, 8, 9, 4, 1]
+// for( let num of arr){
+//   let result = testNum(num);
+//   console.log(result + num)
+// }
+//++++++++++++++++++++++++++++++++++++++

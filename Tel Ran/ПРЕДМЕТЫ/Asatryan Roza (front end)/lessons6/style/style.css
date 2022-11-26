@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.active{
+    color:aqua;
+    background-color: blueviolet;
+}
+div{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}

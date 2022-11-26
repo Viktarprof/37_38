@@ -1,0 +1,31 @@
+/* div::after{
+    content: 'Name';
+    text-align: center;
+} */
+
+
+.test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+.btnMinus{
+    width: 40px;
+    height: 40px;
+    background-color: aqua;
+    margin: 5px;
+}
+.btnPlus{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(191, 255, 0);
+    margin: 5px;
+}
+.par{
+    font-size: 20px;
+}
+.par:hover{
+    font-size: 40px;
+}
