@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.clock{
+  width: 480px;
+  height: 480px;
+  background-image: url('https://media.istockphoto.com/id/1014875730/vector/clock-face-blank-hour-dial-dashes-mark-minutes-and-hours-simple-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=Z4E98A5tq-ANDKy7LHmp6YIpfRg9xcftPTfZVuMheow=');
+  background-size: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.center{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  background-color: black;
+  transform: translate(-50%); 
+  /* transform: translate(-50%); сама точка стала по цетру */
+}
+
+.hand{
+  width: 130px;
+  height: 3px;
+  background-color: black;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  left: 109px;
+  transition: all 0.3s;
+
+}
+.btns button{
+  width: 100px;
+  height: 40px;
+}

@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* grid-temiate-coloms */
+/* bootstrap */
+/* repeat */
+/* grid-template-rows */
+/* еденица гибкости -fr */
+/* pad - так на задают отстпупы */
+/* grid-colom-gap для колонок отступы в гридах */
+/* grid-row-gap для строк отступы в гридах */
+
+
+.items{
+display: grid;
+/* grid-template-columns: 50% 50% 100px */
+/* grid-template-columns: 80px 50px 100px; */
+/* grid-template-columns: 100px 100px 100px; */
+/* grid-template-columns: repeat(3, 100px) 50px; */
+/*                      100px 100px 100px  50px    */
+
+
+/* дивы переносятся на новую строку по порядку */
+/* column-wigth  ширина колонок*/
+/* grid-template-columns: 40% 40%; */
+/* row-heigth  задаем  высоту для каждой строки двух колонок 40% 40%*/
+/* grid-template-rows: 100px 200px 300px; */
+/* grid-template-rows: 300px ;  тут мы задаи высоту первой строке */
+
+
+/* поделелил экран ровно на три части */
+/* grid-template-columns: 1fr 1fr 1fr; */
+
+/* тут мы сказали что второй всегда в два раза больше чем первая */
+/* grid-template-columns: 1fr 2fr; */
+
+
+/* grid-template-columns: 2fr repeat(4, 1fr) 2fr ; */
+/* grid-template-columns: 1fr 20% 40px 12rem; */
+
+/* grid-template-columns: repeat(3,100px); */
+/* grid-column-gap: 50px;
+grid-row-gap: 50px; */
+
+/* одинаковые отступы сверху и снизу */
+/* grid-gap: 50px */
+
+/* grid-gap: 50px 100px; */
+/*      50px row    100px coloms*/
+
+/* grid-template: repeat(2 , 100px)     /     repeat(3, 50px); */
+/*              это grid-template-row; | это grid-template coloms*/
+
+
+  grid-template-columns: repeat(2, 100px);
+  grid-gap: 5px;
+}
+
+.item{
+  border: 1px solid red;
+  padding: 10px;
+}
+
+/* nth-child */
+/* .item:nth-child(1){ */
+/* background-color: aqua; */
+/* тут говорю начать нолонки с третьей колонки */
+
+
+/* grid-column-start: 1; */
+/* начали певую ячейку с и закончили до 3 ячейки */
+/* grid-column-end: 3; */
+/* два варианта 
+grid-column-start: 2;
+grid-column-end: 3; */
+/* grid-column: 2 / 3 ;
+} */
+
+
+
+/* grid row-start свойство для строк */
+/* grid row-end свойство для строк */
+/* .item:nth-child(2){
+grid-column-start: 1; */
+/* два варианта 
+grid-row-start: 1;
+grid-row-end: 3; */
+/* grid-row: 1/4 ;
+} */
+
+/* .item:nth-child(4){
+grid-column: 3 / 4 ;
+grid-row: 3 / 4; 
+}
+
+.item:nth-child(8){
+  grid-column: 2 / 3;
+ grid-row: 2 / 3;}   /*  начинаешь со второй колонки и заканчиваешь до третьей колонки*/
+  
+/* .item:nth-child(1){
+  grid-column: 2 ;
+}
+.item:nth-child(2){
+  grid-column: 2 ;
+  grid-row: 2;
+}
+.item:nth-child(3){
+  grid-column: 3 ;
+  grid-row: 2 ;
+}
+
+.item:nth-child(4){
+  grid-column: 1 ;
+  grid-row: 1 ;
+}
+.item:nth-child(5){
+  grid-column: 1 ;
+  grid-row: 2 ;
+} */
+
+
+
+
+
+/* .item:nth-child(1){
+  grid-column: 1 / 3;
+ grid-row: 1;
+}
+.item:nth-child(2){
+  grid-column: 3;
+ grid-row: 1/3;
+} */
+
+/* или так */
+/* .item:nth-child(1){
+grid-column: 1/ span 2;
+}
+.item:nth-child(2){
+  grid-column: 3;
+ grid-row: 1/3;
+} */
+
+
+
+
+ /* .item:nth-child(1){
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+.item:nth-child(2){
+  grid-column: 3/5;
+  grid-row: 1;
+} 
+.item:nth-child(4){
+  grid-column: 2/5;
+   grid-row: 2;
+} 
+.item:nth-child(5){
+  grid-column: 1/5;
+}  */
+
+
+/* или так */
+ /* .item:nth-child(1){
+  grid-column: 1 / span 2;
+}
+.item:nth-child(2){
+  grid-column: 3/ span 2;
+} 
+.item:nth-child(4){
+  grid-column: 2/ span 3;
+} 
+.item:nth-child(5){
+  grid-column: 1/ span 4;
+}  */
+
+
+
+.item:nth-child(4){
+  display: grid;
+  grid-template-columns: repeat(2, 40px);
+  grid-gap: 5px;
+}
+.item-child{
+  border: 1px solid black;
+}
+.item-child:nth-child(1){
+  grid-column: 1 / span 2;
+}

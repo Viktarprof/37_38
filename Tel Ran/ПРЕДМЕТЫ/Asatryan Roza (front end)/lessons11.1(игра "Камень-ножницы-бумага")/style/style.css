@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-body{
+  /* vh по всей высоте экрана */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  border: 3px solid black;
+  background-image: url(..//media/fon.jpeg);
+  background-size: cover;
+
+}
+
+.game-body h2{
+  font-size: 40px;
+  color: antiquewhite;
+}
+
+.game-body h4{
+  font-size: 30px;
+  color: rgb(238, 139, 1);
+  transition: scale;
+}
+
+.game-body h4:hover{
+  scale: 1.5;
+}
+
+#start{
+  background-color: antiquewhite;
+  color: black;
+  border-radius: 20px;
+  border: none;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#start:hover{
+  background-color: red;
+}
+
+.game-body button{
+  width: 60px;
+  height: 40px;
+}
+
+.imgWinner{
+  width: 400px;
+  height: 300px;
+}

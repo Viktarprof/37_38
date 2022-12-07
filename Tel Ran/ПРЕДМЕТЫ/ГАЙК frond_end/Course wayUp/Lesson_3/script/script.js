@@ -1,19 +1,19 @@
 // DOM (document   )
 // <!-- номер 1 -->
-// const html = document.getElementById('html');
-// const css = document.getElementById('css');
-// const js = document.getElementById('js');
+const html = document.getElementById('html');
+const css = document.getElementById('css');
+const js1 = document.getElementById('js');
 
-// const p = document.querySelector('.paragraf');
+const p = document.querySelector('.paragraf');
 
-// const divs =document.querySelectorAll('div');
+const divs =document.querySelectorAll('div');
 
 
-// console.log(html);
-// console.log(css);
-// console.log(js);
-// console.log(p);
-// console.log(divs);
+console.log(html);
+console.log(css);
+console.log(js1);
+console.log(p);
+console.log(divs);
 
 
 
@@ -21,9 +21,9 @@
 
 //   замена текста 
 //__________________________________
-// const js = document.getElementById('js');
-// // console.log(js.innerHTML);
-// js.innerHTML = 'Pyton';
+const js = document.getElementById('js');
+// console.log(js.innerHTML);
+js.innerHTML = 'Pyton';
 
 
 
@@ -61,7 +61,7 @@
 
 
 //___________   <!-- номер 3 -->________________________________
-// меня стили
+// меняю стили
 // const div = document.getElementById('div');
 // const btn = document.getElementById('btn');
 

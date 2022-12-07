@@ -1,27 +1,27 @@
-// const tabs = document.getElementById('tabs');
-// const content = document.querySelectorAll('.content')
+const tabs = document.getElementById('tabs');
+const content = document.querySelectorAll('.content')
 
 
-// const changeClass = (el) => {
-// for (let i = 0; i < tabs.children.length; i++){
+const changeClass = (el) => {
+for (let i = 0; i < tabs.children.length; i++){
 
-//     tabs.children[i].classList.remove('active') // children  потому что дочерний
-//     }
-//     el.classList.add('active')
-// }
+    tabs.children[i].classList.remove('active') // children  потому что дочерний
+    }
+    el.classList.add('active')
+}
 
 
-// tabs.addEventListener('click', e => { // e - ивент
-//     const currTab = e.target.dataset.atribute;
-//     changeClass(e.target);
-//     for( let i = 0; i < content.length; i++){
-//         content[i].classList.remove('active');
-//         if(content[i].dataset.content === currTab){
-//             content[i].classList.add('active')
-//         }
-//     }
-//     // console.log(currTab)
-// })
+tabs.addEventListener('click', e => { // e - ивент
+    const currTab = e.target.dataset.atribute;
+    changeClass(e.target);
+    for( let i = 0; i < content.length; i++){
+        content[i].classList.remove('active');
+        if(content[i].dataset.content === currTab){
+            content[i].classList.add('active')
+        }
+    }
+    // console.log(currTab)
+})
 
 //==========
 
