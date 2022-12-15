@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*=================== темы ============================== */
+/* minmax */
+/* auto  - только на минимальное значение */ 
+
+/* fr  не ставят на минимальное значение */
+
+/* auto-fill = берет минимальное значение, автоматически заполняби строку максимальным пколичеством колонок, при сжимании переносит колнки на новуую строку
+
+ auto-fit = берет значение максимальное, подгоняет текущее значение колонок под размер экрана а при сжимании переносит на новую строку*/
+/* start = первая линия /  end = вторая линия */
+
+/*  grid-auto-rows: для остальных автоматически значение =  ..px */
+
+
+/* grid-template-area   */
+/* grid-area */
+/* ===================================================== */
+
+
+/* .item{
+  border: 1px solid rgb(215, 14, 14)
+}
+.items{
+  display: grid; */
+
+/* grid-template-columns: minmax(300px, 400px);*/   
+    /*минимально 300 максимально 400 */
+
+/* grid-template-columns: 100px */
+
+/* grid-template-columns: minmax(auto, 400px); */
+    /* автоматически уменьшается подразмер экрана */
+
+/* grid-template-columns: minmax(300px, 1fr); */
+
+/* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+
+/* grid-template-columns: repeat(auto-fit), minmax(100px, 1fr)); */
+
+/* grid-template-columns: [start]100px [middle-first]100px [middle-second]100px [end];
+
+grid-template-rows: [start]100px [middle-first]100px [middle-second]100px [end];
+grid-gap: 15px; */
+/* } */
+
+/* ======== пример как делать ============================= */
+/* .item:nth-child(1){ */
+  /* grid-column: 1 / 3; */
+  /* grid-column: start / middle-second;
+  grid-row: start / middle-second;
+} */
+
+
+/* .auto-fill{
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+}
+
+.auto-fit{
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+} */
+
+
+
+/* ================= задача 1============================== */
+/* .items{
+  display: grid;
+  grid-template-columns: [start] 100px [one-line]100px [two-line]100px [three-line]100px [four-line]100px [end];
+  grid-template-rows: [start] 25px [one-line]25px [two-line]25px [end];
+  grid-gap: 10px;
+}
+.item10{
+  grid-column: start;
+  grid-row: start;
+}
+.item8{
+  grid-column: two-line ;
+  grid-row: start;
+}
+.item6{
+  grid-column: four-line;
+  grid-row: start / end;
+}
+.item4{
+  grid-column: three-line ;
+  grid-row: one-line / end;
+}
+.item5{
+  grid-column: two-line;
+  grid-row: one-line / end;
+}
+.item7{
+  grid-column: one-line ;
+  grid-row: one-line / end;
+} */
+/* =================== AUTO rows / columns ================= */
+
+
+/* .items{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 100px);
+  grid-auto-columns: 500px;
+  grid-auto-rows: 300px;
+
+} */
+
+/* 
+grid-area: name;
+grid-area: grid-row-start /  grid-column-start /  grid-row-end /  grid-column-end
+ */
+
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  /* grid-template-columns: 150px minmax(200px, 1fr) 4fr; */
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas: 
+                      "header header"
+                      "aside main"
+                      "footer footer";
+}
+header{
+  background-color: rgb(227, 214, 26);
+  grid-area: header;
+  /* grid-area: 1 / 1 / 2 / 3; */
+  display: grid;
+  grid-template-columns: 150px minmax(200px, 1fr);
+  grid-template-rows: 100px;
+}
+
+
+
+aside{
+  background-color: rgba(255, 20, 145, 0.401);
+   grid-area: aside; 
+}
+
+/* main{
+  background-color: rgb(122, 233, 126);
+   grid-area: main;
+} */
+
+footer {
+  background-color: rgba(30, 143, 255, 0.582);
+  grid-area: footer;
+
+  /* grid-area: 3 / 1 / 4 / 3; */
+}
+.logo img{
+height: 100%;
+}
+.menu ul{
+list-style: none;
+display: grid;
+align-items: center;
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+grid-template-rows: 100px;
+font-size: 30px;
+}
+
+main{
+  background-color: rgba(122, 233, 126);
+   grid-area: main;
+   display: grid;
+  justify-content: center;
+   grid-gap: 30px;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+   grid-auto-rows: 200px;
+   padding: 10px;
+}
+.img-1{
+  background-image: url('https://media1.popsugar-assets.com/files/thumbor/n8bUt1yPUD0zvO0XmWNFuVj763k/685x0:3345x2660/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/01/07/726/n/1922441/419ff9b05e14b139162ef6.64727550_/i/Best-Winter-Photos.jpg');
+  background-size: cover;
+}
+.img-2{
+  background-image: url('https://images.unsplash.com/photo-1546708623-6e5671915b91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80');
+  background-size: cover;
+}
+.img-3{
+  background-image: url('https://parade.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTkwNTc2MDAyMTcyMzMxMTMz/winter-instagram-captions-1-jpg.jpg');
+  background-size: cover;
+}
+.img-4{
+  background-image: url('https://play-lh.googleusercontent.com/kqjV1NiiN03IHiZMW9x0tT06M9VhMi-kkivdIjJFnfDX0wSWkDab7DLHKM5pFq1ggRA');
+  background-size: cover;
+}
+.img-5{
+  background-image: url('https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_teaser_image/2019-12/coffee-1156595_960_720.jpg?itok=mJg12Q0e');
+  background-size: cover;
+}
+.img-6{
+  background-image: url('https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_16026894.jpg?crop=0%2C359%2C3986%2C2647&wid=828&hei=550&scl=4.814009661835748');
+  background-size: cover;
+}
+.img-7{
+  background-image: url('https://media1.popsugar-assets.com/files/thumbor/sf4c5ByP_O1Z4olnJ4NgriZaRmU/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/01/07/708/n/1922441/b3449ae85e14ab2b9cc193.51764614_GettyImages-/i/Best-Winter-Photos.jpg');
+  background-size: cover;
+}
+.img-8{
+  background-image: url('https://images.theconversation.com/files/306448/original/file-20191211-95111-fbz9rf.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=675.0&fit=crop');
+  background-size: cover;
+}
+.img-9{
+  background-image: url('https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_11065968.jpg?crop=0%2C2%2C1920%2C1275&wid=828&hei=550&scl=2.318840579710145');
+  background-size: cover;
+}
+.img-10{
+  background-image: url('https://cdn.whistler.com/s3/images/winter2022/whistler-village.jpg');
+  background-size: cover;
+}
+.img-11{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDt_10whmdT8fUZYU1C16narfTsAK2DYIt3Q&usqp=CAU');
+  background-size: cover;
+}
+.img-12{
+  background-image: url('https://i.pinimg.com/236x/7e/59/8e/7e598eb77d3f9b62059f83a31b2095b0.jpg');
+  background-size: cover;
+}
+.img-13{
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7-KkES5IVpec3i4qHxxGWNAqDLFPbNeOK0w&usqp=CAU');
+  background-size: cover;
+}
