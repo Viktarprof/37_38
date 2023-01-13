@@ -1,0 +1,70 @@
+-- 5
+select address,
+		district,
+		city_id,
+        phone,
+        postal_code
+ from address;
+ 
+ -- 6
+select address  from address
+where district = 'Alberta' or district = 'QLD';
+ 
+ -- 7
+select address, city_id  from address
+where city_id <= 300 or city_id >= 560;
+ 
+ -- 8
+select address, postal_code  from address
+where postal_code = '';
+ 
+ -- 9
+select phone, address  from address
+where phone like '8%' and phone like '%1';
+ 
+ -- 10
+SELECT title, description, special_features
+from film;
+ 
+ -- 11
+SELECT title, description, special_features
+from film
+where title like 'A%' or title like 'B%' or title like 'E%';
+ 
+ -- 12
+SELECT title, description, special_features
+from film
+where description like '%girl%' ;
+ 
+ -- 13
+SELECT title, description, special_features
+from film
+where description not like '%anbelievable%' and description like '%drama%' and special_features like '%trailers%';
+ 
+ -- 14
+ select first_name, last_name, address_id, active
+ from customer;
+ 
+ -- 15
+  select first_name, last_name, address_id, active
+ from customer
+ where active = 0;
+ 
+ -- 16 
+ select first_name, last_name, address_id, active
+ from customer
+ where address_id between 10 and 15;
+ 
+ -- 17
+  select first_name, last_name, address_id, active
+ from customer
+ where first_name like 'An%' and last_name like '%L';
+ 
+-- 18 
+select * from country;
+select country_id, country from country
+where country = 'Germany';
+
+-- 19
+select * from city
+where city = 'Germany';
