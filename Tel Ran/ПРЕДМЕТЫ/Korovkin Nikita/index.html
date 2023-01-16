@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style/style.css" />
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="header">
+            <div class="header_row">
+                <div 
+                    class="header_item header_item-active"
+                    data-category=""
+                >
+                    All
+                </div>
+                <div class="header_item" data-category="meat">
+                    Meat
+                </div>
+                <div class="header_item" data-category="vegetable">
+                    Vegetables
+                </div>
+                <div class="header_item" data-category="seasoning">
+                    Seasonings
+                </div>
+                <div class="cart_btn" id="cart_btn">Корзина</div>
+            </div>            
+        </div>
+        <div class="content">
+            <div class="action_bar">
+                <div class="sortings">
+                    <div class="sortings_item" id="title-sorting">
+                        Aa
+                    </div>
+                    <div class="sortings_item" id="price-sorting">
+                        $
+                    </div>
+                </div>
+                <div class="filters">
+                    Цена, от:
+                    <input class="filters_input" id="min_price_input" />
+                    Цена, до:
+                    <input class="filters_input" id="max_price_input" />
+                </div>
+                <div class="apply_btn" id="apply_btn">Search</div>
+            </div>
+            <div class="products" id="products"></div>
+            <div class="paginator" id="paginator"></div>
+        </div>
+        <!-- <div class="cart">
+            <div class="cart_item_wrapper">
+                <div class="cart_item">
+                    <img class="cart_item_image" src="image.jpg">
+                    <div class="cart_item_content">
+                        <div class="cart_item_content_title">Product 777</div>
+                        <div>1 x 68 $ = 68 $</div>
+                    </div>
+                    <div class="cart_item_delete">x</div>
+                </div>
+                <div class="cart_item">
+                    <img class="cart_item_image" src="image.jpg">
+                    <div class="cart_item_content">
+                        <div class="cart_item_content_title">Product 777</div>
+                        <div>2 x 68 $ = 136 $</div>
+                    </div>
+                    <div class="cart_item_delete">x</div>
+                </div>
+            </div>
+            <div class="cart_footer">Total: 68 $</div>
+        </div> -->
+        <script src="script/script.js"></script>
+    </body>
+</html>
