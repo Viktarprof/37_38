@@ -28,10 +28,10 @@ let users = [
   {id: 5, name: 'Jonh', salary: 799},
   {id: 6, name: 'Clark', salary: 2222},
 ]
-const newusers = users.find((value) => value.salary < 1000 );
-// const newusers1 = users.filter((value) => value.salary < 1000 );
+const newusers = users.find((value) => value.salary < 1000 ); // находит первый попавшийся
+const newusers1 = users.filter((value) => value.salary < 1000 ); //находит все
 console.log(newusers);
-// console.log(newusers1);
+console.log(newusers1);
 
 
 
