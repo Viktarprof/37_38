@@ -7,8 +7,8 @@ let array = [
   'cdf53tvfre'
 ]
 for (const elem of array) {
-  reg = /\d+/ // маска
-  console.log(elem.match(reg)[0]);
+  regs = /\d+/ // маска
+  console.log(elem.match(regs)[0]);
 }
 
 
@@ -34,7 +34,13 @@ console.log(result);  // [ нашли 'lo', у него index: 3, в строк�
 //   $    - конец строки
 
 // КВАНТИФИКАТОРЫ
-// {n} - n-ое количество подряд идущих групп символов
+//    {n}  - n-ое количество подряд идущих групп символов
+//   {n,m} - или n  подряд идущих символов ИЛИ m подруд идущих символов
+//   {n,}  - или n  подряд идущих символов ИЛИ после запятой МНОГО (бесконечно)
+// диапазон {0,}  ноль или мноо
+//    +    - Означает «один или более». То же самое, что и {n,}. Например, \d+ находит числа (из одной или более цифр).
+//    *    - означает {0,}
+
 
 
 //=============
@@ -124,24 +130,31 @@ const newPhones = []
 let regs = /^\d{3}[.]\d{3}[.]\d{3}$/;
 // let regs = /^[1-9][1-9][1-9][.][1-9][1-9][1-9][.][1-9][1-9][1-9]$/;
 phones.map(el => el.match(regs) == null ? el : newPhones.push(el.match(regs)));
-
+console.log(newPhones);
 // решение
 // let reg = /^\d\d\d[.]\d\d\d[.]\d\d\d$/
-// let newPhonesы = []
+// let newPhoness = []
 
 // for (let elem of phones){
 //     if (elem.match(reg) != null){
-//         // newPhonesы.push(elem)
-//         newPhonesы.push(elem.match(reg)[0])
+//         // newPhoness.push(elem)
+//         newPhoness.push(elem.match(reg)[0])
 //     }
 // }
 
-// console.log(newPhonesы)
+// console.log(newPhoness)
 
 
-console.log(newPhones);
 
 
+
+
+let string1 = 'tigran@mai.com.ru'
+// let reg12 = /\w{1,}[@]\w{2,}[.]\w{2,}[.]{0,1}\w{0,}/
+let reg12 = /\w+[@]\w{2,}[.]\w{2,}[.]?\w*/
+let result1 = string1.match(reg12)
+
+console.log(result1)
 
 
 

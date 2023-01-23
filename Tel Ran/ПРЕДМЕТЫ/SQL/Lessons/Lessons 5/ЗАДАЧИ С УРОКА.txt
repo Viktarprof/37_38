@@ -1,0 +1,282 @@
+create table phones (
+id integer primary key auto_increment,
+Product_Name varchar (128) not null,
+Product_Count integer,
+Starting_Price integer null);
+
+
+insert into Phones(Product_Name, Product_Count, Starting_Price) 
+			values('iPhone X', 3, 680),
+                ('iPhone XR', 2, 700),
+                ('iPhone XS', 10, 720),
+                ('iPhone 11', 1, 790),
+                ('iPhone 11 Pro', 12, 850),
+                ('iPhone 11 Pro Max', 2, 890),
+                ('iPhone SE', 1, 850),
+                ('iPhone 12 Mini', 15, 890),
+                ('iPhone 12', 20, 910),
+                ('iPhone 12 Pro', 5, 950),
+                ('iPhone 12 Pro Max', 13, 1000);
+                
+                
+-- Оператор AS
+--  С помощью оператора AS можно изменить название выходного столбца или определить его псевдоним:
+select Product_Name as title
+from Phones;
+
+-- Вывести поле product_name как title, посчитать и вывести общую сумму заказов (product_count * starting_price) как total_sum
+select Product_Name as title, Product_Count * Starting_Price as total_sum
+from Phones;
+               
+-- Вывести поля product_name как name, product_count как count и starting_price как price.
+select product_name as name, product_count as count, starting_price as price 
+from Phones;       
+
+
+-- CASE оператор
+-- В MySQL оператор CASE имеет функциональность оператора IF-THEN-ELSE 
+
+
+-- CASE
+--     WHEN условие_1 THEN результат_1
+--     WHEN условие_2 THEN результат_2
+--     .................................
+--     WHEN условие_N THEN результат_N
+--     [ELSE альтернативный_результат]
+-- END
+
+
+
+select Product_Name, Product_Count,
+case
+	when Product_Count <= 2 then 'ТОВАР ЗАКАНЧИВАЕТСЯ'
+	when Product_Count <= 5 then 'МАЛО ТОВАРОВ'
+	when Product_Count <= 10 then 'ЕСТЬ В НАЛИЧИИ'
+    else 'МНОГО ТОВАРОВ'
+end as category
+from Phones; 
+
+
+-- Создать новое поле category, заполнить ее: 
+-- Если Product_Count меньше/равно 2, category = 'Товар заканчивается',
+-- Если Product_Count меньше/равно 5, category = 'Мало товара',
+-- Если Product_Count меньше/равно 10, category = 'Есть в наличии',
+-- В остальных случаях category ='Много товара';
+
+alter table Phones
+add category varchar(128);
+
+set sql_safe_updates = 0;
+
+update phones
+set category =
+case
+	when Product_Count <= 2 then 'ТОВАР ЗАКАНЧИВАЕТСЯ'
+	when Product_Count <= 5 then 'МАЛО ТОВАРОВ'
+	when Product_Count <= 10 then 'ЕСТЬ В НАЛИЧИИ'
+    else 'МНОГО ТОВАРОВ'
+end;
+
+-- Создать новое поле tax целое число
+-- Заполнить поле tax
+-- Если начальная цена меньше 700, tax = null,
+-- если больше либо равно 700 и меньше 850, tax = 15,
+-- если больше или равно 850, tax = 25
+
+
+alter table Phones
+add tax integer;
+
+update phones
+set tax =
+case
+	when Starting_Price < 700 then null
+    when Starting_Price < 850 then 15
+	else 25
+end;
+
+
+-- Посчитать конечную цену и представить его как Final_price
+select Product_Name, Starting_Price, tax,  Starting_Price + (Starting_Price * tax / 100) as Final_price
+from Phones;
+
+
+-- Создать новое поле для final_price numeric(7, 2)
+-- Заполнить поле final_price (начанльная цена + процент)
+alter table Phones
+add Final_price numeric(7,2);
+
+update phones
+-- перво решение
+-- set Final_price = Starting_Price + (Starting_Price * tax / 100)
+
+-- второе решение
+set Final_price = 
+case
+	when tax is null then Starting_Price
+	else Starting_Price + (Starting_Price * tax / 100)
+end;
+
+-- третье решение
+-- Функция COALESCE принимает список значений и возвращает первое из них, которое не равно NULL:
+update phones
+set Final_price = COALESCE(Starting_Price + (Starting_Price * tax / 100), Starting_Price);
+
+
+
+
+-- Функции для работы с числами
+select -1 as value;
+
+-- ABS: возвращает абсолютное значение числа.
+select abs(-23) as abs;
+
+-- POW(m, n): возвращает m, возведенную в степень n.
+select pow (4,2) as pow;
+
+-- ROUND: округляет число. В качестве первого параметра передается число. Второй параметр указывает на длину. 
+-- Если длина представляет положительное число, то оно указывает, до какой цифры после запятой идет округление. 
+-- Если длина представляет отрицательное число, то оно указывает, до какой цифры с конца числа до запятой идет округление
+select round(123.567, 2 ) as round_1;
+
+-- SQRT: получает квадратный корень числа.
+select sqrt(123) as sqrt;
+
+-- RAND: генерирует случайное число с плавающей точкой в диапазоне от 0 до 1.
+
+
+-- ссылка на другие Функции -- https://metanit.com/sql/mysql/6.2.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from phones;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ПРАКТИКА
+
+
+-- Нужно повысить зарплаты для отдела sales на 20%, для finance 15%, для shipping 10%, для marketing 25%, для Human Resources 20% и для IT 35%. 
+-- Записать данные в поле new_salary. Поле создавать не нужно, используем AS.
+select *,
+case
+	when department = 'sales' or department = 'Human Resources'  then salary + (salary * 20 / 100) 
+	when department = 'finance' then salary + (salary * 15 / 100)
+	when department = 'shipping' then salary + (salary * 10 / 100) 
+    when department = 'marketing' then salary + (salary * 25 / 100) 
+    else salary + (salary * 35 / 100) 
+end as new_salary
+from employees;
+
+
+-- 2.	Создать поле new_salary, заполнить.
+alter table employees
+add new_salary numeric(7,2);
+
+set  sql_safe_updates = 0;
+ 
+update employees
+set new_salary = 
+case
+	when department = 'sales' or department = 'Human Resources'  then salary + (salary * 20 / 100) 
+	when department = 'finance' then salary + (salary * 15 / 100)
+	when department = 'shipping' then salary + (salary * 10 / 100) 
+    when department = 'marketing' then salary + (salary * 25 / 100) 
+    else salary + (salary * 35 / 100) 
+end;
+
+
+
+
+-- 3.	Используем таблицу customers.
+-- Создать поле sale integer.
+alter table castomers
+add column sale integer;
+
+-- 4.	Заполнить поле sale:
+-- Если sum_price < 5000 скидка null, если больше/равно 5000 и меньше 10000, скидка 5, 
+-- если больше/равно 10000, скидка 10
+
+update castomers
+set sale = 
+case
+	when sum_price < 5000 then null
+    when sum_price >= 5000 and sum_price <= 10000 then 5 
+    when sum_price > 10000 then 10
+end;
+
+
+-- 5.	Создать поле final_price numeric(7, 2). 
+-- Заполнить поле соответственно сделав скидки.
+
+alter table castomers
+add final_price numeric (7,2);
+
+set  sql_safe_updates = 0;
+ 
+update castomers
+set final_price = 
+case
+	when sum_price < 5000 then sum_price
+    when sum_price >= 5000 then sum_price - (sum_price*5/100) 
+    when sum_price >= 10000 then sum_price - (sum_price*10/100) 
+end;
+-- решение 2
+set Final_price = COALESCE(sum_price + (sum_price * sale / 100), sum_price);
+
+
+-- 6.	В order_name поменять math_book на mathematics_book, eng_book на english_book.
+update castomers
+set order_name = replace(order_name, 'math_book', 'mathematics_book'), 
+	order_name = replace(order_name,'eng_book','english_book');
+
+
+select 
+ 
+
+
+
+select * from castomers;
+
+
+
+
