@@ -1,0 +1,122 @@
+ Ссылка на конспект с занятия 
+https://western-appeal-39b.notion.site/GenTech-Jan-26-2023-7ec5176a92f348d4825baf1c1148374b 
+
+-- =================================================
+Задача
+	-	вывести клиентов не из Германии. Поля:
+		-- Имя клиента
+		-- страна
+SELECT ContactName, country  FROM [Customers]
+where Country != 'Germany';
+
+
+
+-- =================================================
+Задача
+	-	удалить всех поставщиков из США
+DELETE FROM Suppliers
+WHERE Country='USA'
+
+
+-- =================================================
+Задача
+	-	вывести все товары (products) с ценой в диапазоне от 50 до 150 с сортировкой по убыванию цены
+SELECT * FROM [Products]
+where  Price between 50 and 150
+Order by Price DESC
+
+
+
+
+-- =================================================
+Задача
+	-	вывести три самых дорогих товара (products) из категори 2 и 3
+
+SELECT *
+FROM Products
+WHERE CategoryID IN (2, 3)
+ORDER BY Price DESC
+LIMIT 3
+
+SELECT *
+FROM Products
+WHERE CategoryID IN (2, 3)
+ORDER BY Price DESC
+LIMIT 3 offset 9
+
+
+SELECT *
+FROM Products
+WHERE CategoryID IN (2, 3)
+ORDER BY Price DESC
+LIMIT 1, 2
+
+
+
+
+
+-- =================================================
+-- вывести информацию о товарах
+	-- название товара
+    -- стоимость
+    -- имя поставщика
+SELECT Products.ProductName, Products.Price, Suppliers.SupplierName
+FROM Products
+JOIN Suppliers ON Products.SupplierID=Suppliers.SupplierID
+
+
+SELECT Categories.CategoryName, Products.ProductName, Products.Price, Suppliers.SupplierName
+FROM Products
+JOIN Suppliers ON Products.SupplierID=Suppliers.SupplierID
+JOIN Categories ON Products.CategoryID=Categories.CategoryID
+
+
+SELECT t1.ProductName, t1.Price, t2.SupplierName
+FROM Products t1
+JOIN Suppliers t2 ON t1.SupplierID=t2.SupplierID
+
+
+
+
+
+-- =================================================
+Задача
+	- вывести товары из Франции и Германии
+	- поля
+		- название товара
+		- стоимость товара
+		- страна поставки
+SELECT t1.ProductName, t1.Price, t2.Country
+FROM Products t1
+JOIN Suppliers t2 ON t1.SupplierID=t2.SupplierID
+WHERE t2.Country IN ('France', 'Germany')
+ORDER BY t2.Country
+
+
+
+
+-- =================================================
+Задача
+	- вывести информацию о заказах
+	- поля
+	-- номер заказа
+		-- имя клиента
+		-- страна клиента
+		-- имя сотрудника
+
+SELECT t1.OrderID, t2.CustomerName, t2.Country, t3.LastName, t3.FirstName
+FROM Orders t1
+LEFT JOIN Customers t2 ON t1.CustomerID=t2.CustomerID
+LEFT JOIN Employees t3 ON t1.EmployeeID=t3.EmployeeID
+
+
+
+
+-- =================================================
+Задача
+		
+	- вывести страны клиентов и поставщиков
+
+SELECT Country FROM Suppliers
+UNION
+SELECT Country FROM Customers

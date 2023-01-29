@@ -1,0 +1,70 @@
+-- Вывести имя, фамилию, зарплату, должность(job_title) и минимальную 
+-- зарплату(MIN_SALARY) для этой должности для всех сотрудников.
+select t1.first_name, t1.last_name, t1.salary, t2.job_title, t2.min_salary
+from employees t1
+join jobs t2 ON t1.job_id=t2.job_id;
+
+
+--  2.Вывести имя, фамилию, должность, департамент и название города(city), где находится департамент. ;
+select * from employees;
+select * from jobs;
+select * from departments;
+select * from locations;
+
+select t1.first_name, t1.last_name, t2.job_title, t3.department_name, t4.city
+from employees t1
+join jobs t2 ON t1.job_id=t2.job_id
+join departments t3 ON t1.department_id=t3.department_id
+join locations t4 on t3.location_id =t4.location_id;
+
+
+
+-- 3. Вывести имя, фамилию, зарплату, должность, минимальную и максимальную зарплату для 
+-- этой должности только тех сотрудников, у которых зарплата равняется либо минимальной 
+-- зарплате, либо максимальной.
+select t1.first_name, t1.last_name, t1.salary, t2.job_title, t2.min_salary, t2.max_salary
+from employees t1
+join jobs t2 ON t1.job_id=t2.job_id
+where salary = min_salary or salary = max_salary;
+
+
+
+
+--  4.Вывести названия департаментов, улицу в которой он находится и название города, 
+-- которые находятся в штатах/провинции.
+select t1.department_name, t2.street_address, t2.city
+from departments t1
+join locations t2 ON t1.location_id=t2.location_id
+where t2.state_province is not null;
+
+
+-- 6.	Вывести название департамента и название города, в котором он находится.
+select t1.department_name, t2.city
+from departments t1
+join locations t2 ON t1.location_id=t2.location_id;
+
+
+-- 9.	Вывести имя, фамилию, должность и название департамента только тех работников, которые находятся в Великобритании.
+select t1.first_name, t1.last_name, t2.job_title, t3.department_name
+from employees t1
+join jobs t2 ON t1.job_id=t2.job_id
+join departments t3 ON t1.department_id=t3.department_id
+join locations t4 ON t3.location_id=t4.location_id
+where country_id = 'UK';
+
+
+-- 10.	Вывести имя, фамилию, название департамента, адрес и город в котором он находится, если ИД страны = США, а город не Сиэтл.
+select t1.first_name, t1.last_name, t2.department_name, t3.street_address, t3.city
+from employees t1
+join departments t2 ON t1.department_id=t2.department_id
+join locations t3 ON t2.location_id=t3.location_id
+where country_id = 'US' and city != 'Seattle';
+
+
+select * from countries;
+select * from departments;
+select * from dependents;
+select * from employees;
+select * from jobs;
+select * from locations;
+select * from regions;
