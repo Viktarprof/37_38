@@ -1,0 +1,266 @@
+ЗАДАЧА
+- вывести все товары, кроме категории напитков, в диапазоны цены от 1 до 100
+
+
+SELECT *
+FROM Products
+WHERE NOT CategoryID=1 AND Price BETWEEN 1 AND 100
+ORDER BY Price DESC
+
+
+
+
+
+
+
+//=================
+ЗАДАЧА
+- очистить у всех поставщиков, кроме тех что из UK и США, поле ContactName
+
+UPDATE Suppliers
+SET ContactName=''
+WHERE NOT Country IN ('UK', 'USA')
+
+
+
+
+
+
+
+//=================
+COUNT
+SELECT COUNT(*) AS total_suppliers
+FROM Suppliers
+
+AVG
+SELECT AVG(Price) AS avg_price
+FROM Products
+
+
+
+
+
+
+
+
+//=================
+SELECT
+	COUNT(*) AS total_products,
+	AVG(Price) AS avg_price,
+    MIN(Price) AS min_price,
+    MAX(Price) AS max_price,
+    SUM(Price) AS total_price
+FROM Products
+
+
+
+
+
+
+
+
+
+
+//=================
+
+ЗАДАЧА
+ 	-- вывести среднюю стоимость напитка
+	-- на выходе одно значение  - среднюю стоимость
+
+SELECT AVG(Price) AS avg_price
+FROM Products
+WHERE CategoryID=1
+
+
+
+
+
+
+
+
+// ============================
+Задача
+	
+	 - вывести кол. распределение товаров
+	 	по категориям
+SELECT COUNT(*) AS total, CategoryID
+FROM Products
+GROUP BY CategoryID
+
+
+
+SELECT COUNT(*) AS total, Categories.CategoryName
+FROM Products
+LEFT JOIN Categories ON Products.CategoryID=Categories.CategoryID
+GROUP BY Products.CategoryID
+ORDER BY total DESC
+
+
+
+
+ // ============================
+Задача
+	 
+	- вывести кол. распределение заказов
+	 по менеджерам
+		 	
+	 НА ВЫХОДЕ
+	 	имя сотрудника - 10
+	 	сотрудник Иван - 20
+
+
+SELECT COUNT(*) AS total, Employees.FirstName, Employees.LastName
+FROM Orders
+LEFT JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+GROUP BY Orders.EmployeeID
+ORDER BY total DESC
+
+
+
+
+
+
+
+
+//=================
+Задача
+	-вывести ко-во клиентов из США
+SELECT count(CustomerID) as total_CustomerName
+FROM Customers
+where Country = 'USA'
+
+
+			SELECT COUNT(*) AS total_from_usa
+			FROM Customers
+			WHERE Country='USA'
+
+
+
+
+
+//=================
+Задача
+
+Кол-во сотрудников с минимальным кол-вом заказов.
+
+SELECT COUNT(*) AS total, Employees.FirstName, Employees.LastName
+FROM Orders
+LEFT JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+GROUP BY Orders.EmployeeID
+ORDER BY total ASC
+LIMIT 1
+
+
+
+
+
+
+
+//=================
+SELECT COUNT(*) AS total, Employees.FirstName, Employees.LastName
+FROM Orders
+LEFT JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+GROUP BY Orders.EmployeeID
+HAVING total >= 20
+ORDER BY total DESC
+
+
+ 
+
+
+
+//=================
+Задача
+	 
+ - из сотрудников 1 и 2 показать того, у кого заказов больше
+
+
+SELECT COUNT(*) as total, Employees.FirstName, Employees.LastName
+FROM Orders
+LEFT JOIN Employees ON Orders.EmployeeID=Employees.EmployeeID
+WHERE Orders.EmployeeID IN (1, 2)
+GROUP BY Orders.EmployeeID
+ORDER BY total DESC
+LIMIT 1
+
+
+
+
+
+
+
+
+//=================
+ Задача
+	 
+ - вывести кто из поставщиков 2 и 3 привез меньше товаров
+
+SELECT COUNT(*) as total, Suppliers.SupplierName
+FROM Products
+LEFT JOIN Suppliers ON Products.SupplierID=Suppliers.SupplierID
+WHERE Products.SupplierID IN (2, 3)
+GROUP BY Products.SupplierID
+ORDER BY total
+LIMIT 1
+
+
+
+
+
+
+//=================
+ Задача	 
+ - удалить всех поставщиков, у которых название города начинается с буквы 'T'
+
+delete from Suppliers
+where City like 'T%'
+
+
+
+
+
+
+//=================
+SELECT AVG(Price) as total, Suppliers.SupplierName
+FROM Products
+LEFT JOIN Suppliers ON Products.SupplierID=Suppliers.SupplierID
+GROUP BY Products.SupplierID
+ORDER BY total DESC
+LIMIT 3
+
+
+
+
+
+
+
+//=================
+У Клинта два имэйла:
+	Три номера телефона для связи
+	Дата:
+		-регистрации
+		- онлайн
+
+customer = {
+	id: 1,
+	email: [
+		1@example.org,
+		2@example.org
+	],
+	contact_person: [
+		{fullname: 'Ivan Ivanov', phone: '+0000000000'},
+		{fullname: 'Ivan Sidorov', phone: '+11111111'},
+		{fullname: 'Ivan Petrov', phone: '+000002222200000'}
+	],
+	datetime: {
+		created: new Date(),
+		online: new Date()
+	}
+}
+
+
+
+
+
+
+
