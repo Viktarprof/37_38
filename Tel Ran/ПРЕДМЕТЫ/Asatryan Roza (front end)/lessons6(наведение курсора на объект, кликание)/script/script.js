@@ -128,8 +128,8 @@ const cards = [
         },
 ];
 for(let i = 0; i < cards.length; i++){
-const div = document.createElement('div');
-const p = document.createElement('p');
+        const div = document.createElement('div');
+        const p = document.createElement('p');
 div.append(p);
 document.body.append(div);
 

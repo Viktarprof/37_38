@@ -1,0 +1,241 @@
+create database if not exists chat;
+use chat;
+
+create table if not exists users
+	(
+	user_id integer primary key auto_increment,
+	fullname varchar(256) not null,
+	country varchar(64),
+	is_blocked BOOL default false,				
+	created_at datetime default current_timestamp
+);
+-- drop table users; 
+
+
+
+
+
+
+
+create table chats(
+		chat_id int primary key auto_increment,
+		topic nvarchar(256) not null,
+		created_at datetime default current_timestamp,
+		user1_id INTEGER,
+		user2_id INTEGER,
+		FOREIGN KEY (user1_id) REFERENCES users(user_id),
+		FOREIGN KEY (user2_id) REFERENCES users(user_id)
+);
+-- drop table chats;
+
+
+
+
+
+create table if not exists messages(
+		message_id integer primary key auto_increment,
+		chat_id integer,
+		author_id integer,
+		recipient_id integer,
+		text text not null,
+		created_at datetime default current_timestamp,
+		is_removed BOOL default false,
+		FOREIGN KEY (author_id) REFERENCES users(user_id),
+		FOREIGN KEY (recipient_id) REFERENCES users(user_id),
+		FOREIGN KEY (chat_id) REFERENCES chats(chat_id)
+);
+-- drop table messages;
+
+
+
+
+create table if not exists reactions(
+		reaction_id integer primary key auto_increment,
+		user_id integer,
+		message_id integer,
+		value integer not null check(value between 1 and 5),
+		created_at datetime default current_timestamp,
+		FOREIGN KEY (user_id) REFERENCES users(user_id),
+		FOREIGN KEY (message_id) REFERENCES messages(message_id)
+);
+-- drop table  reactions;
+
+
+
+
+-- Задача (1)
+-- добавить пять произвольных пользователей
+
+-- Задача (2);
+-- добавить пять произвольных записей в каждую таблицу
+
+insert into users (fullname, country)
+	values ('Виктор Иванович', 'Беларусь'),
+		('Елена Сергеевна', 'Польша'),
+                 ('Антон Константинович', 'Германия'),
+                  ('Олег Викторович', 'Бельгия'),
+                   ('Константин Андреевич', 'Украина');
+
+INSERT INTO chats (topic, user1_id, user2_id)
+	VALUES
+		('animals', 1, 2),
+		('small talk', 2, 3),
+    		('animals', 4, 5),
+		('small talk', 3, 4), 
+    		('animals', 1, 5);
+                    
+insert into messages (text, chat_id, author_id, recipient_id) 
+   	values 
+		('test1', 1,3,4),
+		('test2', 2,1,3),
+		('test3', 3,4,5),
+		('test4', 4,5,2),
+        	('test4', 5,2,3);
+        
+
+                    
+insert into reactions (user_id, message_id, value)
+	values
+		(2, 3, 5),
+		(3, 2, 4),
+                (4, 5, 1),
+		(1, 4, 2),
+		(5, 1, 3);
+                    
+
+
+
+    -- ///////////////////////                
+-- Задача 
+-- - вывести информацию о чатах
+	-- (КТО С КЕМ ОБЩАЕТСЯ)
+-- - поля
+	-- СОБЕСЕДНИК_1 (ИМЯ)
+	-- СОБЕСЕДНИК_2 (ИМЯ)
+
+    
+SELECT user1.fullname AS 'СОБЕСЕДНИК_1', user2.fullname AS 'СОБЕСЕДНИК_2', chat_id
+FROM chats
+JOIN users user1 ON chats.user1_id = user1.user_id
+JOIN users user2 ON chats.user2_id = user2.user_id;
+
+
+
+
+	
+-- ///////////////////////
+-- Задача 
+-- вывести список стран пользователей (УНИКАЛЬНЫЕ ЗНАЧЕНИЯ)
+
+
+SELECT distinct country
+from users;
+
+
+
+
+-- ///////////////////////
+-- Задача (2)
+-- Вывести самого активного пользователя (по ко-ву сообщ.)
+-- поля
+	-- имя_юзера
+	-- ко-во сообщ
+
+
+SELECT COUNT(message_id) AS total_messages, users.fullname
+FROM messages
+
+	LEFT JOIN users ON messages.author_id = users.user_id
+
+	GROUP BY messages.author_id
+
+	ORDER BY total_messages DESC
+	LIMIT 1;
+	
+    
+
+
+
+-- ///////////////////////   
+--  Задача (2)
+-- вывести ТОП-1 стран, где средняя длина сообщения выше
+
+
+
+SELECT AVG(LENGTH(messages.text)) AS avg_length, users.country
+FROM messages
+
+	LEFT JOIN users ON messages.author_id = users.user_id
+
+	GROUP BY users.country
+
+	ORDER BY avg_length DESC
+	LIMIT 1;
+
+
+
+-- ///////////////////////
+SELECT AVG(LENGTH(messages.text)) AS avg_length
+	FROM messages;
+
+    
+    
+    
+
+
+-- ///////////////////////
+-- Задача
+-- показать среднюю реакцию пользователя №1
+
+
+SELECT AVG(value) AS rating
+	FROM reactions
+	where user_id=1;
+
+    -- ///////////////////////
+SELECT AVG(value) AS rating
+	FROM reactions;
+
+
+
+
+
+
+-- ///////////////////////
+-- Задача 
+-- вывести сообщения для чата № 1
+select 
+		messages.created_at,
+		messages.text,
+		users.fullname
+	from messages
+	
+	left join users on messages.author_id = users.user_id
+	
+	where messages.chat_id = 1
+	
+	order by messages.created_at desc
+	
+	LIMIT 40 OFFSET 0;
+
+
+
+-- ///////////////////////
+-- Задача 
+-- вывести сообщения которые написаны в феврале
+
+
+select 
+	topic
+	from chats
+	where created_at < '2023-03-01'and created_at >= '2023-02-01';
+
+
+
+
+
+				
+select * from users;
+select * from messages;
+select * from chats;
+select * from reactions;

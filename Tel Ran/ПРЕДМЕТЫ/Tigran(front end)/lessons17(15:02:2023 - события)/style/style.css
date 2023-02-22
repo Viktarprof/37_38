@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  width: 200px;
+  height: 200px;
+  background-color: brown;
+}
+
+.test_color{
+  background-color: aquamarine;
+}

@@ -123,6 +123,10 @@ console.log(Object.getOwnPropertyDescriptor(obj,'readName'))
 // }
   
 
+
+
+
+
 console.log('============================');
 // метод Object.defineProperty(obj, 'name',{}) позволяет изменить флаги дескрипторов
 
@@ -134,3 +138,7 @@ console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
 
 // obj.name = 'TEST' //  переписали имя
 console.log(obj);
+
+
+
+
