@@ -53,3 +53,24 @@ align-items: center;
 .trigger button:hover{
   opacity: 1;
 }
+
+
+.container_dots{
+  position: absolute;
+  display: flex;
+  bottom: 20px;
+  transform: translatex(-50%);
+  left: 50%;
+  gap: 15px;
+}
+
+.container_dots button{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  border: 2px solid black;
+}
+.container_dots .active{
+  background-color: coral;
+}

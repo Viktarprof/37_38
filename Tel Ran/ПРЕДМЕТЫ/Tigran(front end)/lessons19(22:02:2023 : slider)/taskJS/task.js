@@ -41,34 +41,30 @@ for (let elem of images) {
 
 
 function go_left(){
-    if(slider_index == 0 ){
-        slider_index = images.length
-        console.log(slider_index);
-    } 
-    else {
+    if(slider_index != 0 ){ 
         slider_index--
         cards.style.left = `${-1 * slider_index * 500}px`;
-        console.log(slider_index);
+    } 
+    else {
+        slider_index = images.length-1;
+        cards.style.left = `${-1 * slider_index * 500}px`;
     }
+
 };
 
 function go_rigth(){
     if(slider_index === images.length-1){
-        slider_index = -1;
-        console.log(slider_index);
+        slider_index++
+        cards.style.left = `${-1 * slider_index *500}px`; 
     } 
     else {
-        slider_index++
-        cards.style.left = `${-1 * slider_index *500}px`;
-        console.log(slider_index);
-    
+        slider_index = 0;
+        cards.style.left = `${-1 * slider_index * 500}px`;
     }
 };
 
 left_Btn.addEventListener('click', go_left)
 rigth_Btn.addEventListener('click', go_rigth);
-
-
 
 triggers.append(left_Btn,rigth_Btn);
 frame.append(cards, triggers);
@@ -76,5 +72,24 @@ div_root.append(frame)
 
 
 
-// мини дз: реализовать переход с первой картинки на последнюю, и с последней на первую
+function create_dots(){
+    const container_dots = document.createElement('div');
+    container_dots.className = 'container_dots'
 
+    for (let i = 0; i < images.length; i++) {
+        const dots = document.createElement('button');
+        container_dots.append(dots);
+
+        dots.addEventListener('click', () => {
+            slider_index = i;
+            cards.style.left = `${-1 * slider_index * 500}px`;
+    
+            const buttons = dots.parentElement.childNodes;
+            buttons.forEach(elem => elem.classList.remove('active'))
+            
+            dots.classList.add('active')
+        })
+    }
+    frame.append(container_dots)
+}
+create_dots()

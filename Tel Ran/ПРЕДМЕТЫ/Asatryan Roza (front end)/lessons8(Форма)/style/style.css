@@ -44,3 +44,41 @@ button{
     box-shadow: 5px 5px 20px black;
     cursor: wait;
 }
+
+
+
+
+h1{
+    margin-bottom: 24px;
+}
+
+p{
+    margin: 24px 0px 24px 0px;
+}
+
+input{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding-left: 30px;
+}
+
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn1{
+    background-color: aqua;
+}
+
+.btn1:hover{
+background-color: brown;
+}
+.btn2{
+    background-color: rgb(111, 0, 255);
+}

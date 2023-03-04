@@ -1,0 +1,17 @@
+
+#card{
+    background-color: deepskyblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 5px double black;
+}
+.yellow{
+    color: yellow;
+}
+.item{
+    width: 100px;
+    height: 100px;
+   
+}
