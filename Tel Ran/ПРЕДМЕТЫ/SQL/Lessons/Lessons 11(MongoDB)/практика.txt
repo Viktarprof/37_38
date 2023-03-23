@@ -1,0 +1,664 @@
+		
+
+		АГРЕГАЦИЯ
+======================================================
+db.users.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'country': 'Germany'
+        }
+    }
+])
+
+=====
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    }
+])
+
+
+======
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    },
+    {
+        '$sort': {
+            'duration_secs': -1
+        }
+    }
+])
+
+
+======
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    },
+    { // этап 2 - сортировка
+        '$sort': {
+            'duration_secs': -1
+        }
+    },
+    { // этап 3 - проекция
+        '$project': {
+            'duration_secs': 1,
+            '_id': 0
+        }
+    }
+])
+
+
+
+======================================================
+db.calls.aggregate([
+    {
+        '$sort': {
+            'duration_secs': -1
+        }
+    },
+    {
+        '$limit': 1
+    }
+])
+
+
+
+
+
+
+
+======================================================
+limit = 5
+page = 1
+skip = 
+
+Задача
+	- напишите формулу расчета переменной 'skip'
+
+skip = limit * (page - 1)
+skip = page * limit - limit
+
+
+
+
+
+
+
+
+
+======================================================
+
+db.users.aggregate([
+    {
+        '$match': {
+            'is_blocked': {'$ne': true},
+            'balance': {'$lt': 0}
+        }
+    },
+    {
+        '$count': 'users_count'
+    }
+])
+
+
+
+
+
+======================================================
+//db.goods.aggregate([
+//    {
+//        '$sample': {'size': 1}
+//    }
+//])
+
+
+
+
+======================================================
+Задача 
+	- вывести имена и балансы пользователей НЕ из Германии
+db.users.aggregate([
+    {
+       '$match':
+                {"country" :{'$ne': "Germany"}}
+    }, //filter
+    
+    {'$sort': {
+            'balance': 1
+               }},
+    {
+      '$project': 
+                  { "fullname" : 1,
+                     "balance" : 1 ,
+                     _id: 0}
+    }
+])
+
+
+
+======================================================
+Задача
+	- вывести одного произвольного пользователя, у которого
+		(1) баланс более 100
+			и
+		(2) статус не "премиум"
+db.users.aggregate([
+    {
+       '$match':
+                {"balance" : {'$gte': 100},
+                "status" : "premium"
+                }
+    }, //filter
+    
+    {
+      '$sample': {'size': 1}
+    }
+                  
+])
+
+
+
+======
+
+db.users.aggregate([
+    {
+        $match: {
+            balance: { $gt: 100 },
+            is_premium: { $ne: true }
+        }
+    },
+    {
+        $sample: {
+            size: 1
+        }
+    }
+])
+
+
+
+
+======================================================Задача
+	- вывести все транзакции из Китая
+db.transactions.aggregate([
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'sender_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$match': {
+            'sender.country': 'China'
+        }
+    }
+])
+
+
+======================================================
+Задача
+	- вывести все транзакции из Китая и в Китай
+
+db.transactions.aggregate([
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'sender_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'recipient_id',
+            'foreignField': 'id',
+            'as': 'recipient'
+        }
+    },
+    {
+        '$match': {
+            '$or': [
+                { 'sender.country': 'China' },
+                { 'recipient.country': 'China' }
+            ]
+        }
+    }
+])
+
+
+
+
+
+
+
+
+========= добавили новое поле ========================
+db.goods.aggregate([
+    {
+        '$project': {
+            '_id': 0,
+            'id': 1,
+            'price_eur': '$price',
+        }
+    }
+])
+
+
+
+
+
+
+========= поменяли курс валюты =======================
+db.goods.aggregate([
+    {
+        '$project': {
+            '_id': 0,
+            'id': 1,
+            'price_eur': '$price',
+            'price_usd': {'$multiply': ['$price', 1.05]}
+        }
+    }
+])
+
+
+
+
+
+
+========= добавили поля к уже имеющимся ==============
+db.goods.aggregate([
+    {
+        '$addFields': {
+            'price_usd': {'$multiply': ['$price', 1.05]}
+        }
+    }
+])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+======================================================
+======================================================
+======================================================
+db.transactions.aggregate([
+    {
+        '$group': {
+            '_id': '$currency', // поле группировки
+            'total_sum': {'$sum': '$amount'},
+            'total_count': {'$count': {}}
+        }
+    }
+]);
+
+
+
+
+
+
+======================================================
+db.transactions.aggregate([
+    {
+        '$match': {'currency': 'eur'}
+    },
+    {
+        '$group': {
+            '_id': '$sender_id',
+            'total_sent_eur': {'$sum': '$amount'}
+        }
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$project': {
+            '_id': 0,
+            'fullname': '$sender.fullname',
+            'total_sent_eur': 1
+        }
+    }
+]);
+
+
+======================================================
+db.transactions.aggregate([
+    {
+        '$match': {'currency': 'eur'}
+    },
+    {
+        '$group': {
+            '_id': '$sender_id',
+            'total_sent_eur': {'$sum': '$amount'}
+        }
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$project': {
+            '_id': 0,
+            'fullname': '$sender.fullname',
+            'total_sent_eur': 1
+        }
+    },
+    {
+        '$unwind': {
+            'path': '$fullname',
+            'preserveNullAndEmptyArrays': true
+        }
+}
+]);
+
+
+
+
+
+
+======================================================
+
+**Вывести сумму всех EUR-TXs**
+db.transactions.aggregate([
+    {
+        '$match': {'currency': 'eur'}
+    },
+    {
+        '$group': {
+            '_id': null,
+            'total_sent_eur': {'$sum': '$amount'}
+        }
+    }
+]);
+
+
+
+
+
+======================================================
+Вывести статистику по всем EUR-TXs
+db.transactions.aggregate([
+    {
+        '$match': {'currency': 'eur'}
+    },
+    {
+        '$group': {
+            '_id': null,
+            'total_sent_eur': {'$sum': '$amount'},
+            'min_sent_eur': {'$min': '$amount'},
+            'max_sent_eur': {'$max': '$amount'},
+            'total_sent_count': {'$count': {}},
+            'avg_sent_eur': {'$avg': '$amount'}
+        }
+    }
+]);
+
+
+
+
+
+
+======================================================
+Вывести статистику по всем ТХs для каждой валюты
+
+db.transactions.aggregate([
+
+    {
+        '$group': {
+            '_id': '$currency,
+            'total_sent': {'$sum': '$amount'},
+            'min_sent': {'$min': '$amount'},
+            'max_sent': {'$max': '$amount'},
+            'total_sent_count': {'$count': {}},
+            'avg_sent': {'$avg': '$amount'}
+        }
+    }
+]);
+
+
+
+
+
+======================================================
+Посчитать сумму складских остатков для всех товаров
+Вариант 1
+
+db.goods.aggregate([
+    {
+        '$project': {
+            'total_cost': {'$multiply': ['$price', '$quantity']}
+        }
+    },
+    {
+        '$group': {
+            '_id': null,
+            'total': {'$sum': '$total_cost'}
+        }
+    }
+])
+
+
+
+========= Вариант 2
+db.goods.aggregate([
+    {
+        '$group': {
+            '_id': null,
+            'total': {'$sum': {'$multiply': ['$price', '$quantity']}}
+        }
+    }
+])
+
+
+
+
+
+
+
+
+======================================================
+Найти одного юзера, у которого сумма USD-отправлений самая большая
+
+- на выходе: имя, сумма
+
+db.transactions.aggregate([
+    {
+        '$match': {'currency': 'usd'}
+    },
+    {
+        '$group': {
+            '_id': '$sender_id',
+            'total_sent_usd': {'$sum': '$amount'}
+        }
+    },
+    {
+        '$sort': {'total_sent_usd': -1}
+    },
+    {
+        '$limit': 1
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$unwind': {
+            'path': '$sender',
+            'preserveNullAndEmptyArrays': true
+        }
+    },
+    {
+        '$project': {
+            '_id': 0,
+            'total_sent_usd': 1,
+            'fullname': '$sender.fullname'
+        }
+    }
+])
+
+
+
+
+
+
+======================================================
+Вывести двух произвольных пользователей со средней суммой EUR-отправлений
+
+db.transactions.aggregate([
+    {
+        '$match': { 'currency': 'eur' }
+    },
+    {
+        '$group': {
+            '_id': '$sender_id',
+            'avg_sent_usd': { '$avg': '$amount' }
+        }
+    },
+    {
+        '$sample': {'size': 2}
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    }
+])
+
+
+
+
+
+
+
+
+======================================================
+Рассчитать З/П для каждого сотрудника, который общался по телефону с клиентами, исходя из ставки: 1 МИНУТА == 1.1  EURO
+
+db.calls.aggregate([
+    {
+        '$group': {
+            '_id': '$worker_id',
+            'total_duration_secs': {'$sum': '$duration_secs'}
+        }
+    },
+    {
+        '$project': {
+            'worker_id': '$_id',
+            'salary_eur': {
+                '$multiply': [
+                    {'$divide': ['$total_duration_secs', 60]},
+                    1.1
+                ]
+            }
+        }
+    }
+])
+
+
+======================================================
+ВЫВЕСТИ КАТАЛОГ СТРИМОВ
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+======================================================
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+
+
+======================================================

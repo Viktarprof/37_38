@@ -1,0 +1,197 @@
+		
+
+======================================================
+ВЫВЕСТИ КАТАЛОГ СТРИМОВ
+
+
+db.streams.aggregate([
+    { '$match': { 'is_completed': { '$ne': true } } },
+    { '$sample': { 'size': 2 } },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'user_id',
+            'foreignField': 'id',
+            'as': 'author'
+        }
+    },
+    {'$unwind': '$author'}
+])
+
+
+
+======================================================
+Вывести общий заработок платформы, учитывая комиссию в 13.5%
+
+db.donations.aggregate([
+    {
+        '$group': {
+            '_id': null,
+            'our_commission_eur': {
+                '$sum': {'$multiply': ['$amount', .135]}
+            }
+        }
+    }
+])
+
+
+
+
+======================================================
+Вывести заработок платформы с каждого стримера (имя + заработок_платформы)
+
+db.donations.aggregate([
+    {
+        '$lookup': {
+            'from': 'streams',
+            'localField': 'stream_id',
+            'foreignField': 'id',
+            'as': 'stream'
+        }
+    },
+    {'$unwind': '$stream'},
+    {
+        '$group': {
+            '_id': '$stream.user_id',
+            'our_commission_eur': {'$sum': {'$multiply': ['$amount', .135]}}
+        }
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'author'
+        }
+    },
+    {'$unwind': '$author'},
+    {
+        '$project': {
+            'stream_fullname': '$author.fullname',
+            'our_commission_eur': 1,
+            '_id': 0
+        }
+    },
+    {'$sort': {'our_commission_eur': -1}}
+])
+
+
+
+======================================================
+Вывести ТОП-1 стримеров по заработку (имя + доход)
+
+db.donations.aggregate([
+    {
+        '$lookup': {
+            'from': 'streams',
+            'localField': 'stream_id',
+            'foreignField': 'id',
+            'as': 'stream'
+        }
+    },
+    { '$unwind': '$stream' },
+    {
+        '$group': {
+            '_id': '$stream.user_id',
+            'author_salary_eur': { '$sum': { '$multiply': ['$amount', 1 - .135] } }
+        }
+    },
+    {'$sort': {'author_salary_eur': -1}},
+    {'$limit': 1},
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': '_id',
+            'foreignField': 'id',
+            'as': 'author'
+        }
+    },
+    { '$unwind': '$author' },
+    {
+        '$project': {
+            'stream_fullname': '$author.fullname',
+            'author_salary_eur': 1,
+            '_id': 0
+        }
+    }
+])
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+
+шкала: 0 - 1
+наша_коммиссия: .135 (13.5%)
+доля_стримера: .865 (86.5%)
+
+
+
+
+
+
+
+
+
+======================================================
+
+Вывести среднюю реакцию (оценку) по каждому стриму (название стрима + ср.оценка)
+
+db.reactions.aggregate([
+    {
+        '$group': {
+            '_id': '$stream_id',
+            'rating': { $avg: '$value' }
+        }
+    },
+    {
+        $lookup: {
+            from: 'streams',
+            localField: "_id",
+            foreignField: 'id',
+            as: 'stream'
+        }
+    },
+    { '$unwind': '$stream' },
+    { '$sort': { 'rating': -1 } },
+    {
+        '$project': {
+            'stream_title': '$stream.title',
+            'rating': 1,
+            '_id': 0
+        }
+    }
+])
+
+
+
+
+======================================================
+
+Вывести ТОП-1 стран по общей сумме пожертвований (страна + общая сумма)
+
+
+
+
+
+
+
+
+======================================================
+
+
+
+
+
+
+
+
+
+======================================================

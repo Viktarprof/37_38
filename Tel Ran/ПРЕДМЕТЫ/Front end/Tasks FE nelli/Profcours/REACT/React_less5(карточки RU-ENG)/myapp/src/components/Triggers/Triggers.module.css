@@ -1,0 +1,14 @@
+.triggers {
+    margin-top: 50px;
+  }
+  
+  .triggers button {
+    border: 1px solid green;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+  }

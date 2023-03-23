@@ -1,0 +1,38 @@
+.block_item{
+    margin: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 150px;
+    height: 100px;
+
+    border: 3px dotted black;
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px 5px black;
+
+    cursor: pointer;
+    
+}
+
+.block_item h2{
+    color: crimson;
+}
+.block_item p{
+    color: rgb(0, 153, 255);
+}
+
+.l{
+    width: 100px;
+    height: 80px;
+}
+.m{
+    width: 150px;
+    height: 100px;
+}
+.xl{
+    width: 220px;
+    height: 150px;
+}

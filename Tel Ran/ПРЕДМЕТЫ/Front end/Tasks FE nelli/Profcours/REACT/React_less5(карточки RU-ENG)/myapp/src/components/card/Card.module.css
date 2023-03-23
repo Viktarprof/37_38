@@ -1,0 +1,11 @@
+.wordCard{
+    font-size: 30px;
+    border: 3px solid rgb(41,128,185);
+    border-radius: 10px;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

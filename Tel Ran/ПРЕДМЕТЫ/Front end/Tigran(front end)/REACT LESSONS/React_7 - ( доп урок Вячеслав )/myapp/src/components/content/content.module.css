@@ -1,0 +1,14 @@
+.section{
+    width: 1150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+.textstyle{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+
+   margin: 20px;
+}

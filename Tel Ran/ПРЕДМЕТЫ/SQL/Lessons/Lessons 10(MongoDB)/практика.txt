@@ -606,3 +606,469 @@ db.users.find(
       ]
     }
 )
+
+
+==========================================
+
+//(1) увеличить поле price на 20%
+//	$mul
+//(2) уменьшить поле price на 20%
+//	$mul
+//	
+//	
+//Задача
+//	- написать два запроса на решение указанных задач
+//	
+//	
+//	коллекция: goods
+////	поле с ценой: price
+
+db.goods.updateMany(
+{
+         
+},
+    {'$mul': 
+        {
+          "price" : 1.2,
+        }            
+}
+)
+====
+db.goods.updateMany(
+{
+         
+},
+    {'$mul': 
+        {
+          "price" : 0.2,
+        }            
+}
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Задача
+	- вывести всех заблокированных пользователей
+
+db.users.find(
+{
+    "is_blocked" : true,
+}
+)
+
+
+
+Задача
+	- вывести всех НЕ заблокированных пользователей
+
+db.users.find(
+	{
+		'is_blocked': {$ne: true}
+	}
+)
+
+
+// !!!!! проверить !!!!!
+//db.users.find(
+//{
+//    'or': [
+//            {"is_blocked" : false},
+//            {"is_blocked" : {'$exists': false}}
+//            ]
+//}
+//)
+
+
+
+
+
+
+========================================
+Задача
+	- для всех телефонных разговоров более 5 мин
+		- добавить в поле 'topic' два значения
+			-- credit
+			-- premium
+
+db.calls.updateMany(
+{
+    "duration_secs" : {'$gte': 5*60} 
+},
+{
+    '$addToSet':{
+            "topic" : {'$each': ['credit', 'premium']} 
+                }
+}
+)
+
+
+
+
+========================================
+Задача
+	- для всех разговоров с продолжительностью от 1 мин или темой 'premium'
+	
+	(1) удалить тему 'news'
+	(2) добавить тему 'important'
+	(3) установить поле is_checked: true (проверно)
+
+
+db.calls.updateMany(
+    {
+        '$or': [
+            {'duration_secs': {'$gte': 60}},
+            {'topic': 'premium'}
+        ]
+    }, // filter
+    {
+        '$set': {'is_checked': true},
+        '$addToSet': {'topic': 'important'},
+        '$pull': {'topic': 'news'}
+    } // action
+)
+
+
+
+
+
+
+========================================
+
+Задача
+	- найти всех пользователей из Германии, которые
+		(1) заблокированы
+			или
+		(2) имеют нулевой баланс
+
+db.users.find(
+    {
+        'country': 'Germany',
+        '$or': [
+            {'is_blocked': true},
+            {'balance': 0},
+            {'balance': {'$exists': false}}
+        ]
+    }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		АГРЕГАЦИЯ
+==========================================
+db.users.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'country': 'Germany'
+        }
+    }
+])
+
+=====
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    }
+])
+
+
+======
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    },
+    {
+        '$sort': {
+            'duration_secs': -1
+        }
+    }
+])
+
+
+======
+
+db.calls.aggregate([
+    { // этап 1 - фильтрация
+        '$match': {
+            'direction': 'out'
+        }
+    },
+    { // этап 2 - сортировка
+        '$sort': {
+            'duration_secs': -1
+        }
+    },
+    { // этап 3 - проекция
+        '$project': {
+            'duration_secs': 1,
+            '_id': 0
+        }
+    }
+])
+
+
+
+==========================================
+db.calls.aggregate([
+    {
+        '$sort': {
+            'duration_secs': -1
+        }
+    },
+    {
+        '$limit': 1
+    }
+])
+
+
+
+
+
+
+
+==========================================
+limit = 5
+page = 1
+skip = 
+
+Задача
+	- напишите формулу расчета переменной 'skip'
+
+skip = limit * (page - 1)
+skip = page * limit - limit
+
+
+
+
+
+
+
+
+
+==========================================
+
+db.users.aggregate([
+    {
+        '$match': {
+            'is_blocked': {'$ne': true},
+            'balance': {'$lt': 0}
+        }
+    },
+    {
+        '$count': 'users_count'
+    }
+])
+
+
+
+
+
+==========================================
+//db.goods.aggregate([
+//    {
+//        '$sample': {'size': 1}
+//    }
+//])
+
+
+
+
+==========================================
+Задача 
+	- вывести имена и балансы пользователей не из Германии
+db.users.aggregate([
+    {
+       '$match':
+                {"country" :{'$ne': "Germany"}}
+    }, //filter
+    
+    {'$sort': {
+            'balance': 1
+               }},
+    {
+      '$project': 
+                  { "fullname" : 1,
+                     "balance" : 1 ,
+                     _id: 0}
+    }
+])
+
+
+
+
+==========================================
+Задача
+	- вывести одного произвольного пользователя, у которого
+		(1) баланс более 100
+			и
+		(2) статус не "премиум"
+db.users.aggregate([
+    {
+       '$match':
+                {"balance" : {'$gte': 100},
+                "status" : "premium"
+                }
+    }, //filter
+    
+    {
+      '$sample': {'size': 1}
+    }
+                  
+])
+
+
+
+======
+
+db.users.aggregate([
+    {
+        $match: {
+            balance: { $gt: 100 },
+            is_premium: { $ne: true }
+        }
+    },
+    {
+        $sample: {
+            size: 1
+        }
+    }
+])
+
+
+
+
+
+==========================================
+Задача
+	- вывести все транзакции из Китая
+db.transactions.aggregate([
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'sender_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$match': {
+            'sender.country': 'China'
+        }
+    }
+])
+
+
+==========================================
+Задача
+	- вывести все транзакции из Китая и в Китай
+
+db.transactions.aggregate([
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'sender_id',
+            'foreignField': 'id',
+            'as': 'sender'
+        }
+    },
+    {
+        '$lookup': {
+            'from': 'users',
+            'localField': 'recipient_id',
+            'foreignField': 'id',
+            'as': 'recipient'
+        }
+    },
+    {
+        '$match': {
+            '$or': [
+                { 'sender.country': 'China' },
+                { 'recipient.country': 'China' }
+            ]
+        }
+    }
+])
+
+
+
+
+
+
+
+
+========= добавили новое поле ===================
+db.goods.aggregate([
+    {
+        '$project': {
+            '_id': 0,
+            'id': 1,
+            'price_eur': '$price',
+        }
+    }
+])
+
+
+
+
+
+
+========= поменяли курс валюты ==================
+db.goods.aggregate([
+    {
+        '$project': {
+            '_id': 0,
+            'id': 1,
+            'price_eur': '$price',
+            'price_usd': {'$multiply': ['$price', 1.05]}
+        }
+    }
+])
+
+
+
+
+
+
+========= добавили поля к уже имеющимся ===================
+db.goods.aggregate([
+    {
+        '$addFields': {
+            'price_usd': {'$multiply': ['$price', 1.05]}
+        }
+    }
+])

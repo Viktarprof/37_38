@@ -1,0 +1,14 @@
+.item{
+display: flex;
+flex-direction: column;
+/* gap: 10px; */
+}
+.image{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 30px;
+}

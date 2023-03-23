@@ -1,0 +1,86 @@
+16. Please describe the top 3 things that are the most important for you at work
+
+Как фронтенд разработчик, для меня наиболее важными в работе являются:
+	Качество продукта - для меня важно, чтобы проект, над которым я работаю, был выполнен на высоком уровне. 
+Я всегда стремлюсь к тому, чтобы мой код был чистым, понятным и легко поддерживаемым, а веб-сайты и 
+приложения, которые я создаю, были быстродействующими, безопасными и соответствовали современным требованиям 
+пользователей.
+	Коммуникация и сотрудничество - я считаю, что открытая и эффективная коммуникация является ключевым 
+фактором для успешной работы в команде. Я всегда стремлюсь к тому, чтобы иметь ясное понимание целей и задач 
+проекта, чтобы мой вклад в работу был максимально эффективным. Кроме того, я стараюсь поддерживать дружелюбную 
+и продуктивную атмосферу в команде, чтобы работать было комфортно и приятно.
+	Развитие и обучение - я верю, что обучение и развитие - это ключевой элемент успешной карьеры в IT. Я всегда 
+стремлюсь к тому, чтобы изучать новые технологии и инструменты, улучшать свои навыки и расширять свой кругозор. 
+Я готов вкладывать время и энергию в улучшение своих знаний и навыков, чтобы стать более эффективным и ценным 
+членом команды.
+	Баланс между работой и личной жизнью. Очень важно, чтобы рабочий процесс не происходил за счет моей семейной 
+жизни. Я рассчитываю на то, что мне как работнику, будет предоставлено достаточное количество выходных и отпуска.
+
+
+
+As a front-end developer, the most important things for me at work are:
+	Product quality - it is important for me that the project I am working on is completed at a high level.
+I always strive to ensure that my code is clean, understandable and easily maintainable, and websites and
+the apps I build are fast, secure, and up-to-date for user requirements.
+	Communication and Collaboration - I believe open and effective communication is key
+factor for successful teamwork. I always strive to have a clear understanding of the goals and objectives
+project so that my contribution to the work is as effective as possible. In addition, I try to maintain a friendly
+and a productive atmosphere in the team to work comfortably and pleasantly.
+	Development and learning - I believe that learning and development is a key element of a successful career in IT. I always
+try to learn new technologies and tools, improve my skills and expand my horizons. I am willing to invest time and energy into 
+improving my knowledge and skills to become more effective and valuable  team member.
+	Balance between work and personal life. It is very important that the work process does not take place at the expense of my family
+life. I expect that as an employee, I will be given a sufficient number of days off and holidays.
+
+============================================================================================
+17. Why do you want to change job?
+
+	Я ищу новые вызовы и возможности для развития моих профессиональных навыков и опыта. Хотя моя предыдущая работа 
+была очень полезной и интересной, я чувствую, что я достиг пика того, что мог бы достичь на предыдущем месте работы.
+	У меня не было возможностей для роста в том направлении, в котором я хотел двигаться.
+	Плюс моя зарплата была довольно маленькой и при этом фиксированной.
+	Я не мог в полной мере использовать свои навыки и опыт на предыдущей работе. Поэтому я решил, что это не то направление, 
+	которому я хотел бы посвятить свою жизнь, и я готов перейти к новому вызову.
+	
+
+	I am looking for new challenges and opportunities to develop my professional skills and experience. Although my previous job
+was very helpful and interesting, I felt like I have reached the peak of what I can achieve in my previous workplace.
+	I haven't any room for growth and there no opportunities in the direction I wanted to head.
+	Plus my salary was quite small at the same time fixed.
+	I wasn't able to fully utilize my skills and experience at my previous job. So I decided that it was not the direction I wanted 
+to go in my life, and I am ready to move on to a new challenge.
+
+
+
+============================================================================================
+18. Describe things you want to improve in yourself.
+
+	Я всегда стремлюсь к личностному росту и улучшению своих навыков и качеств. Некоторые из вещей, 
+которые я хочу улучшить в себе, включают:
+
+	Коммуникационные навыки - я хочу стать более уверенным в коммуникации и уметь лучше выражать свои мысли и идеи. 
+Я также хочу улучшить свои навыки прослушивания, чтобы лучше понимать точку зрения других людей и эффективнее 
+работать в команде.
+	Технические навыки - как фронтенд разработчик, я всегда стремлюсь к изучению новых технологий и улучшению своих 
+навыков программирования. Я хочу стать экспертом в своей области и научиться применять новые технологии и инструменты, 
+чтобы создавать более высококачественные продукты.
+	Самоорганизация и продуктивность - я хочу стать более организованным и эффективным в управлении своим временем и задачами. 
+Я хочу научиться устанавливать более реалистичные цели и планировать свою работу так, чтобы достигать их в срок и без стресса.
+	Я понимаю, что личностный рост - это постоянный процесс, и я готов инвестировать время и усилия в улучшение себя в этих 
+областях. Я также готов учиться и получать обратную связь от своих коллег и руководства, чтобы стать лучшим 
+профессионалом и человеком.
+
+
+I always strive for personal growth and improvement of my skills and qualities. Some of the things
+that I want to improve in myself include:
+
+	Communication skills - I want to become more confident in communication and be able to better express my thoughts and ideas.
+I also want to improve my listening skills so I can better understand other people's point of view and more effectively
+work in a team.
+	Technical Skills - as a front-end developer, I'm always looking to learn new technologies and improve my
+programming skills. I want to become an expert in my field and learn how to apply new technologies and tools,
+to create higher quality products.
+	Self-organization and productivity - I want to become more organized and efficient in managing my time and tasks.
+I want to learn how to set more realistic goals and plan my work so that I achieve them on time and without stress.
+	I understand that personal growth is an ongoing process and I am ready to invest time and effort into improving myself in these
+areas. I am also ready to learn and receive feedback from my peers and management to become the best professional and human.
